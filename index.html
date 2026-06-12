@@ -3,1046 +3,395 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>看護師伴走型「誰にも言えない心の整理室」| 匿名OK・顔出し不要のオンライン相談</title>
+<title>看護師伴走型「誰にも言えない心の整理室」| 匿名OK・顔出し不要</title>
 <meta name="description" content="誰にも言えない悩みを、安心して話せる場所。看護師があなたの心の整理に伴走します。匿名OK・顔出し不要・LINE相談可能。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<style>
-:root{
-  --navy:#1b2a4a;
-  --navy-deep:#101d38;
-  --lavender:#b8a9e8;
-  --lavender-light:#efeaff;
-  --pink:#f4b9c8;
-  --pink-deep:#e87a9a;
-  --cream:#fdf9f3;
-  --gold:#e8c474;
-  --text:#3a3a4a;
-  --green:#06c755;
-  --shadow:0 10px 30px rgba(27,42,74,.10);
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  font-family:'Zen Maru Gothic','Noto Sans JP',sans-serif;
-  color:var(--text);
-  background:var(--cream);
-  line-height:1.9;
-  overflow-x:hidden;
-}
-img{max-width:100%;}
-.inner{max-width:960px;margin:0 auto;padding:0 20px;}
-
-/* ===== 共通見出し ===== */
-.sec-label{
-  display:inline-block;
-  font-size:13px;letter-spacing:.25em;
-  color:var(--pink-deep);
-  font-weight:700;
-  margin-bottom:10px;
-}
-.sec-title{
-  font-size:clamp(24px,4.5vw,38px);
-  font-weight:900;
-  color:var(--navy);
-  line-height:1.6;
-  margin-bottom:24px;
-}
-.sec-title .marker{
-  background:linear-gradient(transparent 62%, #ffe3a8 62%);
-  padding:0 2px;
-}
-
-/* ===== ふわっと表示 ===== */
-.fade{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease;}
-.fade.show{opacity:1;transform:none;}
-
-/* ===== CTAボタン ===== */
-.btn-cta{
-  display:inline-block;
-  position:relative;
-  background:linear-gradient(135deg,#f78fb0,#e8638d);
-  color:#fff;
-  font-weight:900;
-  font-size:clamp(17px,2.6vw,21px);
-  padding:20px 56px 20px 44px;
-  border-radius:999px;
-  text-decoration:none;
-  box-shadow:0 8px 24px rgba(232,99,141,.45);
-  transition:transform .25s,box-shadow .25s;
-  animation:pulse 2.4s infinite;
-}
-.btn-cta::after{
-  content:"›";
-  position:absolute;right:26px;top:50%;
-  transform:translateY(-52%);
-  font-size:26px;font-weight:400;
-}
-.btn-cta:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 30px rgba(232,99,141,.55);}
-.btn-cta small{display:block;font-size:12px;font-weight:500;letter-spacing:.1em;opacity:.92;}
-@keyframes pulse{
-  0%,100%{box-shadow:0 8px 24px rgba(232,99,141,.45),0 0 0 0 rgba(232,99,141,.35);}
-  50%{box-shadow:0 8px 24px rgba(232,99,141,.45),0 0 0 14px rgba(232,99,141,0);}
-}
-.cta-note{font-size:12.5px;color:#8a8a99;margin-top:14px;}
-
-/* =====================================================
-   ファーストビュー：夜空の世界観
-===================================================== */
-.hero{
-  position:relative;
-  background:linear-gradient(180deg,#0e1b36 0%,#1b2a4a 45%,#3d3a6b 78%,#7c6ba8 100%);
-  color:#fff;
-  text-align:center;
-  padding:90px 20px 0;
-  overflow:hidden;
-}
-.stars{position:absolute;inset:0;pointer-events:none;}
-.star{
-  position:absolute;background:#fff;border-radius:50%;
-  animation:twinkle 3s infinite ease-in-out;
-}
-@keyframes twinkle{0%,100%{opacity:.15;}50%{opacity:.9;}}
-.moon{
-  position:absolute;top:54px;right:9%;
-  width:74px;height:74px;border-radius:50%;
-  background:radial-gradient(circle at 35% 35%,#fff8e1,#f3dfa0);
-  box-shadow:0 0 50px 14px rgba(243,223,160,.35);
-  animation:float 6s ease-in-out infinite;
-}
-@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
-.hero-copy{position:relative;z-index:2;max-width:760px;margin:0 auto;}
-.hero h1{
-  font-size:clamp(27px,5.6vw,48px);
-  font-weight:900;line-height:1.7;
-  margin-bottom:26px;
-  text-shadow:0 2px 18px rgba(0,0,0,.35);
-}
-.hero h1 .accent{
-  color:#ffe3a8;
-}
-.hero-lead{
-  font-size:clamp(14.5px,2.4vw,17px);
-  opacity:.95;margin-bottom:28px;font-weight:500;
-}
-.hero-worries{
-  display:inline-block;text-align:left;
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.25);
-  backdrop-filter:blur(6px);
-  border-radius:18px;
-  padding:22px 30px;
-  margin-bottom:30px;
-}
-.hero-worries li{
-  list-style:none;
-  font-size:clamp(13.5px,2.2vw,15.5px);
-  padding:5px 0 5px 30px;
-  position:relative;
-}
-.hero-worries li::before{
-  content:"💭";position:absolute;left:0;top:5px;font-size:15px;
-}
-.hero-question{
-  font-size:clamp(16px,3vw,21px);
-  font-weight:700;line-height:2;
-  margin-bottom:30px;
-}
-.hero-question strong{
-  background:linear-gradient(transparent 60%,rgba(232,196,116,.55) 60%);
-  padding:0 3px;font-weight:900;
-}
-.hero-brand{
-  font-size:clamp(15px,2.6vw,19px);
-  font-weight:700;letter-spacing:.08em;
-  margin-bottom:20px;
-}
-.hero-brand .brand-name{
-  display:block;
-  font-size:clamp(22px,4.4vw,34px);
-  font-weight:900;color:#ffe3a8;
-  margin-top:4px;
-}
-.badges{
-  display:flex;justify-content:center;gap:12px;flex-wrap:wrap;
-  margin-bottom:34px;
-}
-.badge{
-  background:#fff;color:var(--navy);
-  font-size:13px;font-weight:700;
-  padding:9px 20px;border-radius:999px;
-  display:flex;align-items:center;gap:6px;
-  box-shadow:0 4px 14px rgba(0,0,0,.18);
-}
-.badge .ic{font-size:15px;}
-.badge.line{color:#06872f;}
-.hero-cta{margin-bottom:0;padding-bottom:74px;}
-.hero-cta .cta-note{color:rgba(255,255,255,.8);}
-.hero-wave{display:block;width:100%;height:80px;margin-top:-1px;}
-
-/* =====================================================
-   共感パート：チェックリスト
-===================================================== */
-.sec-check{padding:80px 0 70px;text-align:center;}
-.checklist{
-  max-width:620px;margin:0 auto 36px;text-align:left;
-  display:grid;gap:14px;
-}
-.check-item{
-  background:#fff;border-radius:16px;
-  padding:18px 22px 18px 60px;
-  position:relative;
-  font-weight:700;font-size:clamp(14.5px,2.4vw,16.5px);
-  box-shadow:var(--shadow);
-  border:2px solid transparent;
-  cursor:pointer;
-  transition:border-color .25s,transform .25s;
-}
-.check-item:hover{transform:translateX(4px);}
-.check-item::before{
-  content:"";
-  position:absolute;left:20px;top:50%;
-  transform:translateY(-50%);
-  width:26px;height:26px;border-radius:8px;
-  border:2.5px solid var(--lavender);
-  background:#fff;
-  transition:all .25s;
-}
-.check-item.checked{border-color:var(--pink);}
-.check-item.checked::before{
-  background:var(--pink-deep);border-color:var(--pink-deep);
-}
-.check-item.checked::after{
-  content:"✓";
-  position:absolute;left:25px;top:50%;
-  transform:translateY(-54%);
-  color:#fff;font-weight:900;font-size:17px;
-}
-.check-hint{font-size:12.5px;color:#9b9bac;margin-bottom:34px;}
-.check-conclusion{
-  font-size:clamp(16px,3vw,21px);
-  font-weight:700;color:var(--navy);line-height:2.1;
-}
-.check-conclusion .big{
-  display:inline-block;
-  font-size:clamp(22px,4.4vw,32px);
-  font-weight:900;color:var(--pink-deep);
-  background:linear-gradient(transparent 62%,#ffe3a8 62%);
-  padding:0 4px;
-}
-
-/* =====================================================
-   問題提起：絡まり→ほどける図解
-===================================================== */
-.sec-problem{
-  background:linear-gradient(180deg,var(--lavender-light),#fdf9f3);
-  padding:80px 0;text-align:center;
-}
-.tangle-diagram{
-  display:flex;align-items:center;justify-content:center;
-  gap:clamp(10px,3vw,30px);
-  margin:40px auto 46px;flex-wrap:wrap;
-}
-.tangle-box{
-  background:#fff;border-radius:22px;
-  width:min(250px,80vw);
-  padding:26px 18px;
-  box-shadow:var(--shadow);
-}
-.tangle-box .emoji{font-size:52px;display:block;margin-bottom:8px;}
-.tangle-box .label{font-weight:900;font-size:16px;color:var(--navy);}
-.tangle-box .desc{font-size:13px;color:#7a7a8c;margin-top:4px;}
-.tangle-arrow{
-  font-size:34px;color:var(--pink-deep);font-weight:900;
-  animation:slide 1.6s ease-in-out infinite;
-}
-@keyframes slide{0%,100%{transform:translateX(0);}50%{transform:translateX(8px);}}
-.depth-steps{
-  max-width:560px;margin:0 auto 40px;
-  display:grid;gap:0;text-align:left;
-}
-.depth-step{
-  background:#fff;border-radius:16px;
-  padding:18px 24px;
-  box-shadow:var(--shadow);
-  position:relative;
-  font-weight:700;
-}
-.depth-step .tag{
-  font-size:11.5px;font-weight:700;color:#fff;
-  border-radius:999px;padding:3px 14px;
-  display:inline-block;margin-bottom:4px;letter-spacing:.1em;
-}
-.depth-step p{font-size:clamp(15px,2.6vw,17.5px);color:var(--navy);}
-.depth-step.s1 .tag{background:#a4b0c8;}
-.depth-step.s2 .tag{background:#8d7bc4;}
-.depth-step.s3 .tag{background:var(--pink-deep);}
-.depth-step.s2{margin-left:24px;}
-.depth-step.s3{margin-left:48px;border:2px solid var(--pink);}
-.depth-connector{
-  height:30px;width:2px;
-  background:repeating-linear-gradient(180deg,var(--lavender) 0 5px,transparent 5px 10px);
-  margin-left:60px;
-}
-.problem-conclusion{
-  font-size:clamp(16px,3.2vw,22px);
-  font-weight:900;color:var(--navy);line-height:2.1;
-}
-.problem-conclusion .hl{
-  background:linear-gradient(transparent 60%,#ffd9e4 60%);
-  padding:0 4px;color:var(--pink-deep);
-}
-
-/* =====================================================
-   ベネフィット
-===================================================== */
-.sec-benefit{padding:80px 0;text-align:center;}
-.benefit-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;margin-top:44px;
-}
-.benefit-card{
-  background:#fff;border-radius:22px;
-  padding:34px 26px 30px;
-  box-shadow:var(--shadow);
-  position:relative;
-  transition:transform .3s;
-  text-align:center;
-}
-.benefit-card:hover{transform:translateY(-6px);}
-.benefit-num{
-  position:absolute;top:-16px;left:50%;transform:translateX(-50%);
-  background:linear-gradient(135deg,var(--lavender),#8d7bc4);
-  color:#fff;font-weight:900;font-size:15px;
-  width:38px;height:38px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 12px rgba(141,123,196,.4);
-}
-.benefit-card .emoji{font-size:46px;display:block;margin-bottom:12px;}
-.benefit-card h3{
-  font-size:18px;font-weight:900;color:var(--navy);
-  margin-bottom:10px;line-height:1.6;
-}
-.benefit-card p{font-size:14px;color:#6b6b7e;line-height:1.9;}
-.benefit-card p strong{color:var(--pink-deep);}
-
-/* =====================================================
-   サービス内容
-===================================================== */
-.sec-service{
-  background:linear-gradient(180deg,#fdf9f3,var(--lavender-light));
-  padding:80px 0;text-align:center;
-}
-.service-flow{display:grid;gap:34px;margin-top:46px;max-width:780px;margin-left:auto;margin-right:auto;}
-.service-card{
-  background:#fff;border-radius:24px;
-  box-shadow:var(--shadow);
-  overflow:hidden;text-align:left;
-  display:grid;grid-template-columns:130px 1fr;
-}
-.service-icon{
-  background:linear-gradient(160deg,#2b3a5e,#4a3f7a);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:6px;color:#fff;padding:20px 10px;
-}
-.service-icon .emoji{font-size:42px;}
-.service-icon .step{font-size:11px;letter-spacing:.2em;font-weight:700;color:#ffe3a8;}
-.service-body{padding:26px 30px;}
-.service-body h3{
-  font-size:clamp(18px,3vw,21px);font-weight:900;
-  color:var(--navy);margin-bottom:10px;
-}
-.service-body p{font-size:14.5px;color:#5e5e70;}
-.service-chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;}
-.chip{
-  background:var(--lavender-light);
-  color:#6a5aa8;font-size:12.5px;font-weight:700;
-  padding:5px 14px;border-radius:999px;
-}
-.service-body .point{
-  font-weight:900;color:var(--pink-deep);font-size:14.5px;
-  margin-top:6px;
-}
-
-/* =====================================================
-   お客様の声
-===================================================== */
-.sec-voice{padding:80px 0;text-align:center;}
-.voice-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;margin-top:44px;
-}
-.voice-card{
-  background:#fff;border-radius:22px;
-  padding:30px 26px;box-shadow:var(--shadow);
-  text-align:left;position:relative;
-}
-.voice-card::before{
-  content:"\201C";
-  position:absolute;top:6px;left:18px;
-  font-size:64px;color:var(--pink);font-family:serif;
-  opacity:.55;line-height:1;
-}
-.voice-stars{color:var(--gold);font-size:15px;letter-spacing:2px;margin-bottom:10px;margin-top:14px;}
-.voice-card p{
-  font-size:15px;font-weight:700;color:var(--navy);
-  line-height:2;margin-bottom:16px;
-}
-.voice-person{display:flex;align-items:center;gap:12px;}
-.voice-avatar{
-  width:46px;height:46px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:24px;
-  background:var(--lavender-light);
-}
-.voice-meta{font-size:13px;color:#8a8a99;font-weight:500;}
-
-/* =====================================================
-   他サービスとの違い
-===================================================== */
-.sec-compare{
-  background:var(--navy);
-  padding:80px 0;text-align:center;color:#fff;
-}
-.sec-compare .sec-title{color:#fff;}
-.sec-compare .sec-label{color:var(--gold);}
-.compare-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:16px;margin-top:44px;
-}
-.compare-card{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:18px;padding:28px 18px;
-}
-.compare-card .emoji{font-size:36px;display:block;margin-bottom:8px;}
-.compare-card h3{font-size:16.5px;font-weight:900;margin-bottom:6px;}
-.compare-card .arrow{color:rgba(255,255,255,.5);font-size:13px;display:block;margin-bottom:2px;}
-.compare-card p{font-size:13.5px;opacity:.85;}
-.compare-card.ours{
-  background:linear-gradient(160deg,#f7e8c9,#ffd9e4);
-  color:var(--navy);
-  border:none;
-  transform:scale(1.06);
-  box-shadow:0 12px 36px rgba(0,0,0,.35);
-  position:relative;
-}
-.compare-card.ours .ribbon{
-  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-  background:var(--pink-deep);color:#fff;
-  font-size:11.5px;font-weight:900;letter-spacing:.12em;
-  padding:4px 18px;border-radius:999px;white-space:nowrap;
-}
-.compare-card.ours .arrow{color:#a06a80;}
-.compare-card.ours p{opacity:1;font-weight:700;}
-
-/* =====================================================
-   FAQ
-===================================================== */
-.sec-faq{padding:80px 0;}
-.sec-faq .inner{max-width:760px;}
-.sec-faq .head{text-align:center;}
-.faq-item{
-  background:#fff;border-radius:18px;
-  box-shadow:var(--shadow);
-  margin-bottom:16px;overflow:hidden;
-}
-.faq-q{
-  width:100%;border:none;background:none;
-  font-family:inherit;cursor:pointer;
-  display:flex;align-items:center;gap:14px;
-  padding:20px 56px 20px 22px;
-  font-size:clamp(14.5px,2.6vw,16.5px);
-  font-weight:900;color:var(--navy);
-  text-align:left;position:relative;line-height:1.7;
-}
-.faq-q .q-mark{
-  flex-shrink:0;
-  width:34px;height:34px;border-radius:50%;
-  background:linear-gradient(135deg,var(--lavender),#8d7bc4);
-  color:#fff;font-weight:900;
-  display:flex;align-items:center;justify-content:center;font-size:15px;
-}
-.faq-q::after{
-  content:"+";
-  position:absolute;right:22px;top:50%;transform:translateY(-50%);
-  font-size:26px;color:var(--pink-deep);font-weight:400;
-  transition:transform .3s;
-}
-.faq-item.open .faq-q::after{transform:translateY(-50%) rotate(45deg);}
-.faq-a{
-  max-height:0;overflow:hidden;
-  transition:max-height .4s ease;
-}
-.faq-a-in{
-  display:flex;gap:14px;align-items:flex-start;
-  padding:0 22px 22px;
-  font-size:14.5px;color:#5e5e70;
-}
-.faq-a .a-mark{
-  flex-shrink:0;
-  width:34px;height:34px;border-radius:50%;
-  background:var(--pink);color:#fff;font-weight:900;
-  display:flex;align-items:center;justify-content:center;font-size:15px;
-}
-
-/* =====================================================
-   CTA（価格）
-===================================================== */
-.sec-offer{
-  background:linear-gradient(180deg,#3d3a6b,#1b2a4a);
-  padding:90px 0;text-align:center;color:#fff;
-  position:relative;overflow:hidden;
-}
-.offer-box{
-  position:relative;z-index:2;
-  background:#fff;border-radius:28px;
-  max-width:620px;margin:0 auto;
-  padding:0 0 44px;
-  color:var(--text);
-  box-shadow:0 20px 60px rgba(0,0,0,.4);
-  overflow:hidden;
-}
-.offer-head{
-  background:linear-gradient(135deg,#f78fb0,#e8638d);
-  color:#fff;padding:18px;
-  font-size:clamp(17px,3vw,21px);font-weight:900;letter-spacing:.08em;
-}
-.offer-body{padding:36px 28px 0;}
-.price-row{
-  display:flex;align-items:baseline;justify-content:center;gap:18px;
-  flex-wrap:wrap;margin-bottom:8px;
-}
-.price-old{
-  font-size:clamp(16px,3vw,20px);color:#9b9bac;font-weight:700;
-  text-decoration:line-through;
-  text-decoration-color:var(--pink-deep);
-  text-decoration-thickness:2.5px;
-}
-.price-arrow{color:var(--pink-deep);font-weight:900;font-size:22px;}
-.price-new{
-  font-size:clamp(44px,9vw,64px);
-  font-weight:900;color:var(--pink-deep);line-height:1.2;
-}
-.price-new .yen{font-size:.45em;}
-.price-label{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:26px;}
-.present{
-  background:var(--lavender-light);
-  border:2px dashed var(--lavender);
-  border-radius:16px;
-  padding:18px 20px;margin:0 auto 30px;
-  max-width:440px;
-}
-.present .p-label{
-  font-size:12px;font-weight:900;color:#fff;
-  background:#8d7bc4;border-radius:999px;
-  display:inline-block;padding:3px 16px;margin-bottom:8px;letter-spacing:.12em;
-}
-.present p{font-size:15.5px;font-weight:900;color:var(--navy);}
-.present .gift{font-size:26px;vertical-align:-3px;margin-right:6px;}
-.offer-msg{
-  font-size:clamp(14.5px,2.6vw,16.5px);
-  font-weight:700;color:var(--navy);
-  line-height:2.1;margin-bottom:30px;
-}
-.offer-msg strong{
-  background:linear-gradient(transparent 62%,#ffe3a8 62%);padding:0 3px;
-}
-
-/* =====================================================
-   継続（次のステップ）
-===================================================== */
-.sec-next{padding:80px 0 90px;text-align:center;}
-.growth-visual{
-  display:flex;align-items:flex-end;justify-content:center;
-  gap:clamp(8px,3vw,24px);
-  margin:42px 0 40px;flex-wrap:wrap;
-}
-.growth-step{
-  background:#fff;border-radius:18px;
-  box-shadow:var(--shadow);
-  padding:20px 16px;width:min(190px,44vw);
-}
-.growth-step .emoji{font-size:38px;display:block;margin-bottom:6px;}
-.growth-step .label{font-size:13.5px;font-weight:900;color:var(--navy);line-height:1.6;}
-.growth-step:nth-child(3){padding-bottom:34px;}
-.growth-step:nth-child(5){padding-bottom:48px;border:2px solid var(--pink);}
-.growth-arrow{font-size:24px;color:var(--lavender);font-weight:900;padding-bottom:30px;}
-.next-msg{
-  font-size:clamp(15.5px,3vw,20px);
-  font-weight:700;color:var(--navy);line-height:2.2;
-}
-.next-msg .hl{
-  font-weight:900;color:var(--pink-deep);
-  background:linear-gradient(transparent 62%,#ffd9e4 62%);padding:0 3px;
-}
-
-/* ===== フッター ===== */
-footer{
-  background:var(--navy-deep);color:rgba(255,255,255,.7);
-  text-align:center;padding:30px 20px 110px;
-  font-size:12.5px;
-}
-
-/* ===== 追従CTA ===== */
-.sticky-cta{
-  position:fixed;left:0;right:0;bottom:0;z-index:99;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(8px);
-  box-shadow:0 -6px 24px rgba(27,42,74,.15);
-  padding:12px 16px;
-  display:flex;align-items:center;justify-content:center;gap:16px;
-  transform:translateY(110%);
-  transition:transform .4s ease;
-}
-.sticky-cta.visible{transform:none;}
-.sticky-cta .s-text{font-size:13px;font-weight:900;color:var(--navy);line-height:1.5;}
-.sticky-cta .s-text .price{color:var(--pink-deep);font-size:15px;}
-.sticky-cta .btn-cta{
-  font-size:15px;padding:13px 44px 13px 30px;animation:none;
-}
-.sticky-cta .btn-cta::after{right:20px;font-size:20px;}
-
-@media (max-width:640px){
-  .service-card{grid-template-columns:1fr;}
-  .service-icon{flex-direction:row;padding:14px;}
-  .service-icon .emoji{font-size:30px;}
-  .depth-step.s2{margin-left:12px;}
-  .depth-step.s3{margin-left:24px;}
-  .depth-connector{margin-left:40px;height:22px;}
-  .tangle-arrow{transform:rotate(90deg);}
-  @keyframes slide{0%,100%{transform:rotate(90deg) translateX(0);}50%{transform:rotate(90deg) translateX(8px);}}
-  .compare-card.ours{transform:none;}
-  .sticky-cta .s-text{display:none;}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <!-- ============ ファーストビュー ============ -->
 <header class="hero">
-  <div class="stars" id="stars"></div>
-  <div class="moon"></div>
-  <div class="hero-copy">
-    <h1 class="fade show">誰にも言えないことを、<br><span class="accent">安心して話せる</span>場所</h1>
-    <p class="hero-lead fade show">夜になると、考え事が止まらなくなることはありませんか？</p>
+  <div class="hero__sky">
+    <div class="stars" aria-hidden="true"></div>
+    <svg class="moon" viewBox="0 0 100 100" aria-hidden="true">
+      <defs>
+        <radialGradient id="moonGrad" cx="40%" cy="40%">
+          <stop offset="0%" stop-color="#fff8e1"/>
+          <stop offset="100%" stop-color="#ffe9a8"/>
+        </radialGradient>
+      </defs>
+      <circle cx="50" cy="50" r="38" fill="url(#moonGrad)"/>
+      <circle cx="38" cy="40" r="5" fill="#f5dd90" opacity=".5"/>
+      <circle cx="60" cy="58" r="7" fill="#f5dd90" opacity=".4"/>
+      <circle cx="52" cy="32" r="3" fill="#f5dd90" opacity=".5"/>
+    </svg>
+  </div>
 
-    <ul class="hero-worries fade show">
-      <li>本当にこの人と結婚していいのかな</li>
-      <li>仕事を続けるべき？</li>
-      <li>私が我慢すればいいのかな</li>
-      <li>何が苦しいのか自分でも分からない</li>
+  <div class="hero__inner">
+    <p class="hero__eyebrow">看護師伴走型オンラインサポート</p>
+    <h1 class="hero__title">
+      <span class="hero__title-line">誰にも言えないことを、</span>
+      <span class="hero__title-line hero__title-line--accent">安心して話せる場所</span>
+    </h1>
+
+    <p class="hero__lead">夜になると、<br>考え事が止まらなくなることはありませんか？</p>
+
+    <ul class="hero__worries">
+      <li class="worry-bubble">本当にこの人と結婚していいのかな</li>
+      <li class="worry-bubble">仕事を続けるべき？</li>
+      <li class="worry-bubble">私が我慢すればいいのかな</li>
+      <li class="worry-bubble">何が苦しいのか自分でも分からない</li>
     </ul>
 
-    <p class="hero-question fade show">答えを出す前に、<br>まずは<strong>心の中を整理してみませんか？</strong></p>
+    <p class="hero__message">
+      答えを出す前に、<br>
+      まずは<strong>心の中を整理</strong>してみませんか？
+    </p>
 
-    <p class="hero-brand fade show">看護師伴走型<span class="brand-name">「誰にも言えない心の整理室」</span></p>
+    <p class="hero__service-name">看護師伴走型<br><span>「誰にも言えない心の整理室」</span></p>
 
-    <div class="badges fade show">
-      <span class="badge"><span class="ic">🙈</span>顔出し不要</span>
-      <span class="badge"><span class="ic">🔒</span>匿名OK</span>
-      <span class="badge line"><span class="ic">💬</span>LINE相談可能</span>
-    </div>
+    <ul class="hero__badges">
+      <li class="badge"><span class="badge__icon">🙈</span>顔出し不要</li>
+      <li class="badge"><span class="badge__icon">🔒</span>匿名OK</li>
+      <li class="badge"><span class="badge__icon">💬</span>LINE相談可能</li>
+    </ul>
 
-    <div class="hero-cta fade show">
-      <a href="#offer" class="btn-cta">まずは初回体験はこちら<small>匿名OK・しつこい勧誘は一切ありません</small></a>
-    </div>
+    <a href="#cta" class="btn btn--primary btn--lg">
+      まずは初回体験はこちら
+      <span class="btn__arrow">→</span>
+    </a>
+    <p class="hero__note">＼ 無理な勧誘は一切ありません ／</p>
   </div>
-  <svg class="hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C320,90 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#fdf9f3"/></svg>
+
+  <div class="hero__wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,64 C240,120 480,0 720,40 C960,80 1200,110 1440,60 L1440,120 L0,120 Z" fill="#fdf6f0"/>
+    </svg>
+  </div>
 </header>
 
 <!-- ============ 共感パート ============ -->
-<section class="sec-check">
-  <div class="inner">
-    <span class="sec-label fade">CHECK</span>
-    <h2 class="sec-title fade">こんな状態に<span class="marker">なっていませんか？</span></h2>
+<section class="section section--cream" id="empathy">
+  <div class="container">
+    <h2 class="section__title">こんな状態に<br class="sp-only">なっていませんか？</h2>
+    <p class="section__sub">当てはまるものに、チェックしてみてください</p>
 
-    <div class="checklist">
-      <div class="check-item fade">夜になると不安が大きくなる</div>
-      <div class="check-item fade">同じ悩みを何度も考えてしまう</div>
-      <div class="check-item fade">友達には本音を言えない</div>
-      <div class="check-item fade">誰かに相談してもスッキリしない</div>
-      <div class="check-item fade">SNSを見ると余計に苦しくなる</div>
-      <div class="check-item fade">自分が何に悩んでいるのか分からない</div>
+    <ul class="checklist">
+      <li><label class="check-item"><input type="checkbox"><span class="check-item__box" aria-hidden="true"></span><span class="check-item__text">夜になると不安が大きくなる</span></label></li>
+      <li><label class="check-item"><input type="checkbox"><span class="check-item__box" aria-hidden="true"></span><span class="check-item__text">同じ悩みを何度も考えてしまう</span></label></li>
+      <li><label class="check-item"><input type="checkbox"><span class="check-item__box" aria-hidden="true"></span><span class="check-item__text">友達には本音を言えない</span></label></li>
+      <li><label class="check-item"><input type="checkbox"><span class="check-item__box" aria-hidden="true"></span><span class="check-item__text">誰かに相談してもスッキリしない</span></label></li>
+      <li><label class="check-item"><input type="checkbox"><span class="check-item__box" aria-hidden="true"></span><span class="check-item__text">SNSを見ると余計に苦しくなる</span></label></li>
+      <li><label class="check-item"><input type="checkbox"><span class="check-item__box" aria-hidden="true"></span><span class="check-item__text">自分が何に悩んでいるのか分からない</span></label></li>
+    </ul>
+
+    <div class="checklist-result" id="checklistResult" hidden>
+      <p class="checklist-result__count"><span id="checkCount">0</span>個 当てはまりました</p>
     </div>
-    <p class="check-hint fade">※ タップしてチェックしてみてください</p>
 
-    <p class="check-conclusion fade">
-      もし<strong>1つでも</strong>当てはまるなら、<br>
-      あなたに必要なのは「答え」ではなく<br>
-      <span class="big">「整理する時間」</span><br>
-      かもしれません。
-    </p>
+    <div class="empathy-conclusion">
+      <p>もし<strong>1つでも</strong>当てはまるなら、</p>
+      <p class="empathy-conclusion__main">
+        あなたに必要なのは「答え」ではなく<br>
+        <span class="marker">「整理する時間」</span>かもしれません。
+      </p>
+    </div>
   </div>
 </section>
 
 <!-- ============ 問題提起 ============ -->
-<section class="sec-problem">
-  <div class="inner">
-    <span class="sec-label fade">WHY</span>
-    <h2 class="sec-title fade">あなたが苦しいのは、<br><span class="marker">悩みがあるから</span>ではありません。</h2>
-    <p class="fade" style="font-weight:700;font-size:clamp(15px,2.8vw,18px);color:var(--navy);">
-      感情と思考が、頭の中で<br>絡まり続けているからです。
-    </p>
+<section class="section section--white" id="problem">
+  <div class="container">
+    <h2 class="section__title">あなたが苦しいのは、<br>悩みがあるからではありません。</h2>
 
-    <div class="tangle-diagram fade">
-      <div class="tangle-box">
-        <span class="emoji">🌀</span>
-        <span class="label">絡まった心</span>
-        <p class="desc">感情と思考がぐちゃぐちゃ。<br>何が苦しいのか分からない…</p>
+    <div class="tangle-visual">
+      <div class="tangle-visual__item">
+        <svg viewBox="0 0 200 160" aria-hidden="true">
+          <path d="M30,80 C60,20 90,140 100,70 C110,20 140,130 120,90 C100,50 160,40 150,90 C143,125 80,135 70,95 C62,62 130,55 140,110" fill="none" stroke="#b59ad6" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <p>感情と思考が<br>頭の中で絡まり続けている状態</p>
       </div>
-      <span class="tangle-arrow">➜</span>
-      <div class="tangle-box" style="border:2px solid var(--pink);">
-        <span class="emoji">🧶</span>
-        <span class="label">整理された心</span>
-        <p class="desc">一本ずつほどけて、<br>本当の気持ちが見えてくる。</p>
+      <div class="tangle-visual__arrow" aria-hidden="true">
+        <span>整理すると…</span>
+        <svg viewBox="0 0 60 24"><path d="M2,12 H50 M42,4 L52,12 L42,20" fill="none" stroke="#e8927c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="tangle-visual__item">
+        <svg viewBox="0 0 200 160" aria-hidden="true">
+          <path d="M30,40 H170" stroke="#7fb8a4" stroke-width="6" stroke-linecap="round"/>
+          <path d="M30,80 H170" stroke="#7fb8a4" stroke-width="6" stroke-linecap="round"/>
+          <path d="M30,120 H170" stroke="#7fb8a4" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <p>1本ずつほどくと<br>心はすっと軽くなる</p>
       </div>
     </div>
 
-    <p class="fade" style="font-weight:700;margin-bottom:22px;color:var(--navy);">たとえば ——</p>
+    <p class="problem-lead">例えば──</p>
 
-    <div class="depth-steps fade">
-      <div class="depth-step s1">
-        <span class="tag">表面の悩み</span>
+    <div class="depth-cards">
+      <div class="depth-card depth-card--1">
+        <span class="depth-card__label">表面の悩み</span>
         <p>「仕事が辛い」</p>
       </div>
-      <div class="depth-connector"></div>
-      <div class="depth-step s2">
-        <span class="tag">その奥にあるもの</span>
+      <div class="depth-arrow" aria-hidden="true">▼ <span>本当は…</span></div>
+      <div class="depth-card depth-card--2">
+        <span class="depth-card__label">その下にある気持ち</span>
         <p>「評価されないことが辛い」</p>
       </div>
-      <div class="depth-connector"></div>
-      <div class="depth-step s3">
-        <span class="tag">本当の気持ち</span>
+      <div class="depth-arrow" aria-hidden="true">▼ <span>さらにその奥には…</span></div>
+      <div class="depth-card depth-card--3">
+        <span class="depth-card__label">いちばん奥の本音</span>
         <p>「認められたい」</p>
       </div>
     </div>
 
-    <p class="problem-conclusion fade">
-      悩みは、<span class="hl">整理されるだけで</span><br>
-      驚くほど軽くなることがあります。
-    </p>
+    <div class="problem-conclusion">
+      <p>悩みは、<span class="marker">整理されるだけで<br class="sp-only">驚くほど軽くなる</span>ことがあります。</p>
+    </div>
   </div>
 </section>
 
 <!-- ============ ベネフィット ============ -->
-<section class="sec-benefit">
-  <div class="inner">
-    <span class="sec-label fade">BENEFIT</span>
-    <h2 class="sec-title fade">心の整理室で<span class="marker">得られること</span></h2>
+<section class="section section--lavender" id="benefit">
+  <div class="container">
+    <p class="section__eyebrow">BENEFIT</p>
+    <h2 class="section__title">心の整理室で得られること</h2>
 
     <div class="benefit-grid">
-      <div class="benefit-card fade">
-        <span class="benefit-num">1</span>
-        <span class="emoji">🧠</span>
+      <div class="benefit-card">
+        <span class="benefit-card__num">01</span>
+        <span class="benefit-card__icon">🧠</span>
         <h3>頭の中が整理される</h3>
-        <p><strong>モヤモヤの正体</strong>が見えるようになります。</p>
+        <p>モヤモヤの正体が見えるようになります。</p>
       </div>
-      <div class="benefit-card fade">
-        <span class="benefit-num">2</span>
-        <span class="emoji">💗</span>
+      <div class="benefit-card">
+        <span class="benefit-card__num">02</span>
+        <span class="benefit-card__icon">💗</span>
         <h3>自分の本音が分かる</h3>
-        <p>他人の期待ではなく、<strong>自分が本当に望んでいること</strong>に気づけます。</p>
+        <p>他人の期待ではなく、自分が本当に望んでいることに気づけます。</p>
       </div>
-      <div class="benefit-card fade">
-        <span class="benefit-num">3</span>
-        <span class="emoji">🌊</span>
+      <div class="benefit-card">
+        <span class="benefit-card__num">03</span>
+        <span class="benefit-card__icon">🌊</span>
         <h3>感情に振り回されなくなる</h3>
-        <p>不安や焦りを<strong>客観的に見られる</strong>ようになります。</p>
+        <p>不安や焦りを客観的に見られるようになります。</p>
       </div>
-      <div class="benefit-card fade">
-        <span class="benefit-num">4</span>
-        <span class="emoji">🤝</span>
+      <div class="benefit-card">
+        <span class="benefit-card__num">04</span>
+        <span class="benefit-card__icon">🤝</span>
         <h3>一人で抱え込まなくてよくなる</h3>
-        <p><strong>安心して話せる場所</strong>ができます。</p>
+        <p>安心して話せる場所ができます。</p>
       </div>
-      <div class="benefit-card fade">
-        <span class="benefit-num">5</span>
-        <span class="emoji">🌷</span>
+      <div class="benefit-card benefit-card--wide">
+        <span class="benefit-card__num">05</span>
+        <span class="benefit-card__icon">🌸</span>
         <h3>自分を責める時間が減る</h3>
-        <p>「<strong>私はおかしくなかったんだ</strong>」と思えるようになります。</p>
+        <p>「私はおかしくなかったんだ」と思えるようになります。</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ サービス内容 ============ -->
-<section class="sec-service">
-  <div class="inner">
-    <span class="sec-label fade">SERVICE</span>
-    <h2 class="sec-title fade">あなたに寄り添う<span class="marker">3つのサポート</span></h2>
+<section class="section section--white" id="service">
+  <div class="container">
+    <p class="section__eyebrow">SERVICE</p>
+    <h2 class="section__title">サービス内容</h2>
 
-    <div class="service-flow">
-      <div class="service-card fade">
-        <div class="service-icon">
-          <span class="step">STEP 1</span>
-          <span class="emoji">🗣️</span>
-        </div>
-        <div class="service-body">
+    <div class="service-steps">
+      <div class="service-step">
+        <div class="service-step__head">
+          <span class="service-step__num">STEP 1</span>
+          <span class="service-step__icon">🗣️</span>
           <h3>心の整理セッション</h3>
-          <p>話しながら、頭の中にあるものを一緒に整理します。</p>
-          <div class="service-chips">
-            <span class="chip">事実</span>
-            <span class="chip">感情</span>
-            <span class="chip">不安</span>
-            <span class="chip">本音</span>
-            <span class="chip">望んでいる未来</span>
-          </div>
         </div>
+        <p>話しながら、一緒に整理します。</p>
+        <ul class="tag-list">
+          <li>事実</li><li>感情</li><li>不安</li><li>本音</li><li>望んでいる未来</li>
+        </ul>
       </div>
 
-      <div class="service-card fade">
-        <div class="service-icon">
-          <span class="step">STEP 2</span>
-          <span class="emoji">📋</span>
-        </div>
-        <div class="service-body">
+      <div class="service-step">
+        <div class="service-step__head">
+          <span class="service-step__num">STEP 2</span>
+          <span class="service-step__icon">📋</span>
           <h3>整理レポート</h3>
-          <p>相談後には、あなた専用のレポートをまとめてお渡しします。</p>
-          <div class="service-chips">
-            <span class="chip">今抱えている悩み</span>
-            <span class="chip">ストレス要因</span>
-            <span class="chip">思考パターン</span>
-            <span class="chip">次の一歩</span>
-          </div>
-          <p class="point">話して終わりではありません。</p>
         </div>
+        <p>相談後にはレポートをまとめてお渡しします。<br><strong>話して終わりではありません。</strong></p>
+        <ul class="tag-list">
+          <li>今抱えている悩み</li><li>ストレス要因</li><li>思考パターン</li><li>次の一歩</li>
+        </ul>
       </div>
 
-      <div class="service-card fade">
-        <div class="service-icon">
-          <span class="step">STEP 3</span>
-          <span class="emoji">🌱</span>
-        </div>
-        <div class="service-body">
+      <div class="service-step">
+        <div class="service-step__head">
+          <span class="service-step__num">STEP 3</span>
+          <span class="service-step__icon">🌱</span>
           <h3>継続伴走サポート</h3>
-          <p>必要な方には、定期的な振り返りも行います。変化を記録しながら、少しずつ心を整えていきます。</p>
-          <p class="point">あなたのペースで、無理なく。</p>
         </div>
+        <p>必要な方には定期的な振り返りも行います。変化を記録しながら、少しずつ心を整えていきます。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ お客様の声 ============ -->
-<section class="sec-voice">
-  <div class="inner">
-    <span class="sec-label fade">VOICE</span>
-    <h2 class="sec-title fade">ご利用者さまの<span class="marker">声</span></h2>
+<!-- ============ ご利用者さまの声 ============ -->
+<section class="section section--cream" id="voice">
+  <div class="container">
+    <p class="section__eyebrow">VOICE</p>
+    <h2 class="section__title">ご利用者さまの声</h2>
 
     <div class="voice-grid">
-      <div class="voice-card fade">
-        <div class="voice-stars">★★★★★</div>
-        <p>「悩みの答えをもらったわけではないのに、心がすごく軽くなりました。」</p>
-        <div class="voice-person">
-          <span class="voice-avatar">👩</span>
-          <span class="voice-meta">29歳 女性</span>
-        </div>
-      </div>
-      <div class="voice-card fade">
-        <div class="voice-stars">★★★★★</div>
-        <p>「自分でも気づいていなかった本音に気づけました。」</p>
-        <div class="voice-person">
-          <span class="voice-avatar">👩‍🦰</span>
-          <span class="voice-meta">32歳 女性</span>
-        </div>
-      </div>
-      <div class="voice-card fade">
-        <div class="voice-stars">★★★★★</div>
-        <p>「否定されずに話を聞いてもらえたことが救いでした。」</p>
-        <div class="voice-person">
-          <span class="voice-avatar">👩‍🦱</span>
-          <span class="voice-meta">35歳 女性</span>
-        </div>
-      </div>
+      <figure class="voice-card">
+        <div class="voice-card__avatar" aria-hidden="true">👩</div>
+        <blockquote>悩みの答えをもらったわけではないのに、心がすごく軽くなりました。</blockquote>
+        <figcaption>29歳 女性</figcaption>
+        <div class="voice-card__stars" aria-hidden="true">★★★★★</div>
+      </figure>
+      <figure class="voice-card">
+        <div class="voice-card__avatar" aria-hidden="true">👩‍💼</div>
+        <blockquote>自分でも気づいていなかった本音に気づけました。</blockquote>
+        <figcaption>32歳 女性</figcaption>
+        <div class="voice-card__stars" aria-hidden="true">★★★★★</div>
+      </figure>
+      <figure class="voice-card">
+        <div class="voice-card__avatar" aria-hidden="true">👩‍🦰</div>
+        <blockquote>否定されずに話を聞いてもらえたことが救いでした。</blockquote>
+        <figcaption>35歳 女性</figcaption>
+        <div class="voice-card__stars" aria-hidden="true">★★★★★</div>
+      </figure>
     </div>
   </div>
 </section>
 
 <!-- ============ 他サービスとの違い ============ -->
-<section class="sec-compare">
-  <div class="inner">
-    <span class="sec-label fade">DIFFERENCE</span>
-    <h2 class="sec-title fade">他のサービスとの違い</h2>
+<section class="section section--white" id="difference">
+  <div class="container">
+    <p class="section__eyebrow">DIFFERENCE</p>
+    <h2 class="section__title">他サービスとの違い</h2>
 
     <div class="compare-grid">
-      <div class="compare-card fade">
-        <span class="emoji">🛋️</span>
+      <div class="compare-card">
+        <span class="compare-card__icon">🛋️</span>
         <h3>カウンセリング</h3>
-        <span class="arrow">▼</span>
         <p>問題解決を目指す</p>
       </div>
-      <div class="compare-card fade">
-        <span class="emoji">🚩</span>
+      <div class="compare-card">
+        <span class="compare-card__icon">🎯</span>
         <h3>コーチング</h3>
-        <span class="arrow">▼</span>
         <p>目標達成を目指す</p>
       </div>
-      <div class="compare-card fade">
-        <span class="emoji">🔮</span>
+      <div class="compare-card">
+        <span class="compare-card__icon">🔮</span>
         <h3>占い</h3>
-        <span class="arrow">▼</span>
         <p>答えを提示する</p>
       </div>
-      <div class="compare-card ours fade">
-        <span class="ribbon">私たちはここ</span>
-        <span class="emoji">🌙</span>
+      <div class="compare-card compare-card--highlight">
+        <span class="compare-card__badge">私たちはここ</span>
+        <span class="compare-card__icon">🕊️</span>
         <h3>心の整理室</h3>
-        <span class="arrow">▼</span>
-        <p>感情と思考を整理する</p>
+        <p>感情と思考を<strong>整理する</strong></p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
-<section class="sec-faq">
-  <div class="inner">
-    <div class="head">
-      <span class="sec-label fade">FAQ</span>
-      <h2 class="sec-title fade">よくあるご質問</h2>
-    </div>
+<section class="section section--lavender" id="faq">
+  <div class="container container--narrow">
+    <p class="section__eyebrow">FAQ</p>
+    <h2 class="section__title">よくあるご質問</h2>
 
-    <div class="faq-item fade">
-      <button class="faq-q"><span class="q-mark">Q</span>カウンセリングとの違いは？</button>
-      <div class="faq-a"><div class="faq-a-in"><span class="a-mark">A</span><p>診断や治療を行うものではありません。安心して話しながら心を整理する伴走サービスです。</p></div></div>
-    </div>
-    <div class="faq-item fade">
-      <button class="faq-q"><span class="q-mark">Q</span>匿名でも利用できますか？</button>
-      <div class="faq-a"><div class="faq-a-in"><span class="a-mark">A</span><p>可能です。顔出しも不要です。</p></div></div>
-    </div>
-    <div class="faq-item fade">
-      <button class="faq-q"><span class="q-mark">Q</span>どんな悩みでも大丈夫ですか？</button>
-      <div class="faq-a"><div class="faq-a-in"><span class="a-mark">A</span><p>恋愛、結婚、仕事、人間関係など幅広く対応しています。</p></div></div>
-    </div>
-    <div class="faq-item fade">
-      <button class="faq-q"><span class="q-mark">Q</span>勧誘はありますか？</button>
-      <div class="faq-a"><div class="faq-a-in"><span class="a-mark">A</span><p>ありません。無理な継続提案も行いません。</p></div></div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary><span class="faq-item__q">Q</span>カウンセリングとの違いは？<span class="faq-item__toggle" aria-hidden="true"></span></summary>
+        <div class="faq-item__answer"><span class="faq-item__a">A</span><p>診断や治療を行うものではありません。安心して話しながら心を整理する伴走サービスです。</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-item__q">Q</span>匿名でも利用できますか？<span class="faq-item__toggle" aria-hidden="true"></span></summary>
+        <div class="faq-item__answer"><span class="faq-item__a">A</span><p>可能です。顔出しも不要です。</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-item__q">Q</span>どんな悩みでも大丈夫ですか？<span class="faq-item__toggle" aria-hidden="true"></span></summary>
+        <div class="faq-item__answer"><span class="faq-item__a">A</span><p>恋愛、結婚、仕事、人間関係など幅広く対応しています。</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-item__q">Q</span>勧誘はありますか？<span class="faq-item__toggle" aria-hidden="true"></span></summary>
+        <div class="faq-item__answer"><span class="faq-item__a">A</span><p>ありません。無理な継続提案も行いません。</p></div>
+      </details>
     </div>
   </div>
 </section>
 
-<!-- ============ CTA（購入） ============ -->
-<section class="sec-offer" id="offer">
-  <div class="inner">
-    <div class="offer-box fade">
-      <div class="offer-head">＼ 今だけ初回限定 ／</div>
-      <div class="offer-body">
-        <div class="price-row">
-          <span class="price-old">通常60分</span>
-          <span class="price-arrow">➜</span>
-          <span class="price-new">○○<span class="yen">円</span></span>
-        </div>
-        <p class="price-label">初回体験価格</p>
+<!-- ============ CTA ============ -->
+<section class="cta" id="cta">
+  <div class="container container--narrow">
+    <p class="cta__limited">＼ 今だけ初回限定 ／</p>
 
-        <div class="present">
-          <span class="p-label">初回利用者限定プレゼント</span>
-          <p><span class="gift">🎁</span>「心の整理シート」</p>
-        </div>
-
-        <p class="offer-msg">
-          一人で抱え続ける前に、まずは一度<br>
-          <strong>心の中を言葉にしてみませんか？</strong>
-        </p>
-
-        <a href="#" class="btn-cta">初回相談を予約する<small>匿名OK・LINEで簡単予約</small></a>
-        <p class="cta-note">※ 無理な勧誘・継続提案は一切ありません</p>
-      </div>
+    <div class="price-box">
+      <p class="price-box__before">通常60分 <s>10,000円</s></p>
+      <div class="price-box__arrow" aria-hidden="true">▼</div>
+      <p class="price-box__label">初回体験価格</p>
+      <p class="price-box__price"><span class="price-box__num">3,000</span>円<span class="price-box__tax">（税込）</span></p>
     </div>
+
+    <div class="gift-box">
+      <span class="gift-box__icon">🎁</span>
+      <p>さらに初回利用者限定<br><strong>「心の整理シート」プレゼント</strong></p>
+    </div>
+
+    <p class="cta__message">
+      一人で抱え続ける前に、<br>
+      まずは一度<br>
+      <strong>心の中を言葉にしてみませんか？</strong>
+    </p>
+
+    <a href="#" class="btn btn--primary btn--lg btn--pulse">
+      初回相談を予約する
+      <span class="btn__arrow">→</span>
+    </a>
+    <p class="cta__note">顔出し不要・匿名OK・勧誘なし</p>
   </div>
 </section>
 
 <!-- ============ 継続（次のステップ） ============ -->
-<section class="sec-next">
-  <div class="inner">
-    <span class="sec-label fade">NEXT STEP</span>
-    <h2 class="sec-title fade">一度きりで<span class="marker">終わらせない</span></h2>
-    <p class="fade" style="font-weight:700;color:var(--navy);">
-      相談履歴や整理シートを蓄積し、<br>過去の自分との変化を見える化します。
+<section class="section section--night" id="next">
+  <div class="container container--narrow">
+    <h2 class="section__title section__title--light">一度きりで終わらせない</h2>
+    <p class="next__text">
+      相談履歴や整理シートを蓄積し、<br>
+      過去の自分との変化を<strong>見える化</strong>します。
     </p>
-
-    <div class="growth-visual fade">
-      <div class="growth-step">
-        <span class="emoji">🌑</span>
-        <span class="label">モヤモヤを<br>言葉にする</span>
-      </div>
-      <span class="growth-arrow">➜</span>
-      <div class="growth-step">
-        <span class="emoji">🌗</span>
-        <span class="label">本音に<br>気づく</span>
-      </div>
-      <span class="growth-arrow">➜</span>
-      <div class="growth-step">
-        <span class="emoji">🌕</span>
-        <span class="label">悩みと向き合える<br>自分が育つ</span>
-      </div>
+    <div class="next-visual" aria-hidden="true">
+      <div class="next-visual__step"><span>😢</span><p>悩みで<br>いっぱい</p></div>
+      <span class="next-visual__line"></span>
+      <div class="next-visual__step"><span>🌥️</span><p>少しずつ<br>整理</p></div>
+      <span class="next-visual__line"></span>
+      <div class="next-visual__step"><span>🌤️</span><p>変化に<br>気づく</p></div>
+      <span class="next-visual__line"></span>
+      <div class="next-visual__step"><span>☀️</span><p>向き合える<br>自分に</p></div>
     </div>
-
-    <p class="next-msg fade">
+    <p class="next__message">
       悩みを解決する場所ではなく、<br>
-      <span class="hl">悩みと向き合える自分を育てる場所へ。</span><br><br>
-      あなたのペースで、<br>少しずつ心を整えていきましょう。
+      <span class="marker marker--light">悩みと向き合える自分を育てる場所へ。</span>
     </p>
+    <p class="next__closing">あなたのペースで、<br>少しずつ心を整えていきましょう。</p>
+    <a href="#cta" class="btn btn--outline">初回体験の詳細を見る</a>
   </div>
 </section>
 
-<footer>
+<footer class="footer">
   <p>看護師伴走型「誰にも言えない心の整理室」</p>
-  <p style="margin-top:6px;opacity:.6;">© Kokoro no Seiri-shitsu. All rights reserved.</p>
+  <small>&copy; 2026 心の整理室</small>
 </footer>
 
-<!-- ============ 追従CTA ============ -->
+<!-- 追従CTAバー -->
 <div class="sticky-cta" id="stickyCta">
-  <p class="s-text">今だけ初回限定<br><span class="price">体験価格 ○○円</span></p>
-  <a href="#offer" class="btn-cta">初回相談を予約する</a>
+  <a href="#cta" class="btn btn--primary btn--full">初回体験を予約する（今だけ3,000円）</a>
 </div>
 
-<script>
-// 星空生成
-const stars = document.getElementById('stars');
-for (let i = 0; i < 70; i++) {
-  const s = document.createElement('span');
-  s.className = 'star';
-  const size = Math.random() * 2.5 + 1;
-  s.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*85}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s;`;
-  stars.appendChild(s);
-}
-
-// スクロールでふわっと表示
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
-  });
-}, { threshold: 0.15 });
-document.querySelectorAll('.fade').forEach(el => io.observe(el));
-
-// チェックリスト：タップでチェック
-document.querySelectorAll('.check-item').forEach(item => {
-  item.addEventListener('click', () => item.classList.toggle('checked'));
-});
-
-// FAQアコーディオン
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.parentElement;
-    const ans = item.querySelector('.faq-a');
-    const isOpen = item.classList.toggle('open');
-    ans.style.maxHeight = isOpen ? ans.scrollHeight + 'px' : '0';
-  });
-});
-
-// 追従CTA：ファーストビューを過ぎたら表示、オファー部では非表示
-const sticky = document.getElementById('stickyCta');
-const hero = document.querySelector('.hero');
-const offer = document.getElementById('offer');
-window.addEventListener('scroll', () => {
-  const heroBottom = hero.offsetTop + hero.offsetHeight;
-  const offerRect = offer.getBoundingClientRect();
-  const inOffer = offerRect.top < window.innerHeight && offerRect.bottom > 0;
-  sticky.classList.toggle('visible', window.scrollY > heroBottom - 200 && !inOffer);
-}, { passive: true });
-</script>
+<script src="script.js"></script>
 </body>
 </html>
