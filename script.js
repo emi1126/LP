@@ -1,57 +1,79 @@
-// ========== チェックリスト：チェック数のカウント表示 ==========
-const checkboxes = document.querySelectorAll('.check-item input[type="checkbox"]');
-const resultBox = document.getElementById('checklistResult');
-const countEl = document.getElementById('checkCount');
+// ============================================
+// 心の整理室 LP - インタラクション
+// ============================================
 
-function updateCheckCount() {
-  const count = [...checkboxes].filter((cb) => cb.checked).length;
-  countEl.textContent = count;
-  resultBox.hidden = count === 0;
-}
-checkboxes.forEach((cb) => cb.addEventListener('change', updateCheckCount));
-
-// ========== スクロールフェードイン ==========
-const fadeTargets = document.querySelectorAll(
-  '.section__title, .section__sub, .check-item, .empathy-conclusion, ' +
-  '.tangle-visual__item, .depth-card, .problem-conclusion, ' +
-  '.benefit-card, .service-step, .voice-card, .compare-card, ' +
-  '.faq-item, .price-box, .gift-box, .cta__message, .next-visual__step'
-);
-fadeTargets.forEach((el) => el.classList.add('fade-in'));
-
+// スクロールフェードイン
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('is-shown');
+        entry.target.classList.add("is-visible");
         observer.unobserve(entry.target);
       }
     });
   },
-  { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+  { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
 );
-fadeTargets.forEach((el) => observer.observe(el));
 
-// カード類は兄弟要素の順に少しずつ遅延させ、波のように表示する
-document
-  .querySelectorAll('.benefit-grid, .voice-grid, .compare-grid, .checklist, .next-visual')
-  .forEach((grid) => {
-    [...grid.children].forEach((child, i) => {
-      const target = child.classList.contains('fade-in') ? child : child.querySelector('.fade-in');
-      if (target) target.style.transitionDelay = `${i * 0.08}s`;
-    });
+document.querySelectorAll(".fade-up").forEach((el, i) => {
+  // 同一セクション内で少しずつ遅延をつける
+  el.style.transitionDelay = `${(i % 4) * 0.08}s`;
+  observer.observe(el);
+});
+
+// ほどけた心の線アニメーション（untangle が見えたら発火）
+const untangle = document.querySelector(".untangle");
+if (untangle) {
+  const untangleObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          untangleObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+  untangleObserver.observe(untangle);
+}
+
+// チェックリスト: 1つでもチェックされたら結果を強調
+const checkboxes = document.querySelectorAll(".checklist input[type='checkbox']");
+const checkResult = document.getElementById("checkResult");
+
+checkboxes.forEach((cb) => {
+  cb.addEventListener("change", () => {
+    const checkedCount = [...checkboxes].filter((c) => c.checked).length;
+    if (checkedCount > 0 && checkResult) {
+      checkResult.style.transform = "scale(1.02)";
+      checkResult.style.boxShadow = "0 18px 50px rgba(217, 119, 147, 0.25)";
+      setTimeout(() => {
+        checkResult.style.transform = "";
+      }, 300);
+    }
   });
+});
 
-// ========== 追従CTAバー：FVを過ぎたら表示、CTAセクション付近では隠す ==========
-const stickyCta = document.getElementById('stickyCta');
-const hero = document.querySelector('.hero');
-const ctaSection = document.getElementById('cta');
+// 追従CTA: ファーストビューを過ぎたら表示、CTAセクション付近では隠す
+const stickyCta = document.getElementById("stickyCta");
+const hero = document.querySelector(".hero");
+const ctaSection = document.getElementById("cta");
 
 function updateStickyCta() {
+  if (!stickyCta || !hero) return;
   const heroBottom = hero.getBoundingClientRect().bottom;
-  const ctaRect = ctaSection.getBoundingClientRect();
-  const ctaInView = ctaRect.top < window.innerHeight && ctaRect.bottom > 0;
-  stickyCta.classList.toggle('is-visible', heroBottom < 0 && !ctaInView);
+  let nearCta = false;
+  if (ctaSection) {
+    const rect = ctaSection.getBoundingClientRect();
+    nearCta = rect.top < window.innerHeight && rect.bottom > 0;
+  }
+  if (heroBottom < 0 && !nearCta) {
+    stickyCta.classList.add("is-shown");
+  } else {
+    stickyCta.classList.remove("is-shown");
+  }
 }
-window.addEventListener('scroll', updateStickyCta, { passive: true });
+
+window.addEventListener("scroll", updateStickyCta, { passive: true });
 updateStickyCta();

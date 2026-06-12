@@ -1,395 +1,413 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>看護師伴走型「誰にも言えない心の整理室」| 匿名OK・顔出し不要</title>
-<meta name="description" content="誰にも言えない悩みを、安心して話せる場所。看護師があなたの心の整理に伴走します。匿名OK・顔出し不要・LINE相談可能。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>看護師伴走型「誰にも言えない心の整理室」| 匿名OK・顔出し不要のLINE相談</title>
+<meta name="description" content="誰にも言えない悩みを、安心して話せる場所。看護師が伴走しながら、あなたの感情と思考を一緒に整理します。匿名OK・顔出し不要・LINE相談可能。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
 <!-- ============ ファーストビュー ============ -->
 <header class="hero">
-  <div class="hero__sky">
-    <div class="stars" aria-hidden="true"></div>
-    <svg class="moon" viewBox="0 0 100 100" aria-hidden="true">
-      <defs>
-        <radialGradient id="moonGrad" cx="40%" cy="40%">
-          <stop offset="0%" stop-color="#fff8e1"/>
-          <stop offset="100%" stop-color="#ffe9a8"/>
-        </radialGradient>
-      </defs>
-      <circle cx="50" cy="50" r="38" fill="url(#moonGrad)"/>
-      <circle cx="38" cy="40" r="5" fill="#f5dd90" opacity=".5"/>
-      <circle cx="60" cy="58" r="7" fill="#f5dd90" opacity=".4"/>
-      <circle cx="52" cy="32" r="3" fill="#f5dd90" opacity=".5"/>
-    </svg>
-  </div>
+  <div class="hero__stars" aria-hidden="true"></div>
+  <div class="hero__moon" aria-hidden="true"></div>
 
   <div class="hero__inner">
-    <p class="hero__eyebrow">看護師伴走型オンラインサポート</p>
-    <h1 class="hero__title">
+    <p class="hero__eyebrow fade-up">看護師伴走型「誰にも言えない心の整理室」</p>
+
+    <h1 class="hero__title fade-up">
       <span class="hero__title-line">誰にも言えないことを、</span>
       <span class="hero__title-line hero__title-line--accent">安心して話せる場所</span>
     </h1>
 
-    <p class="hero__lead">夜になると、<br>考え事が止まらなくなることはありませんか？</p>
-
-    <ul class="hero__worries">
-      <li class="worry-bubble">本当にこの人と結婚していいのかな</li>
-      <li class="worry-bubble">仕事を続けるべき？</li>
-      <li class="worry-bubble">私が我慢すればいいのかな</li>
-      <li class="worry-bubble">何が苦しいのか自分でも分からない</li>
-    </ul>
-
-    <p class="hero__message">
-      答えを出す前に、<br>
-      まずは<strong>心の中を整理</strong>してみませんか？
+    <p class="hero__lead fade-up">
+      夜になると、<br />
+      考え事が止まらなくなることはありませんか？
     </p>
 
-    <p class="hero__service-name">看護師伴走型<br><span>「誰にも言えない心の整理室」</span></p>
+    <!-- 浮かぶ悩みの吹き出し -->
+    <div class="hero__bubbles fade-up">
+      <p class="bubble bubble--1">本当にこの人と<br />結婚していいのかな</p>
+      <p class="bubble bubble--2">仕事を<br />続けるべき？</p>
+      <p class="bubble bubble--3">私が我慢すれば<br />いいのかな</p>
+      <p class="bubble bubble--4">何が苦しいのか<br />自分でも分からない</p>
+    </div>
 
-    <ul class="hero__badges">
+    <p class="hero__message fade-up">
+      答えを出す前に、<br />
+      <strong>まずは心の中を整理してみませんか？</strong>
+    </p>
+
+    <ul class="hero__badges fade-up">
       <li class="badge"><span class="badge__icon">🙈</span>顔出し不要</li>
       <li class="badge"><span class="badge__icon">🔒</span>匿名OK</li>
       <li class="badge"><span class="badge__icon">💬</span>LINE相談可能</li>
     </ul>
 
-    <a href="#cta" class="btn btn--primary btn--lg">
+    <a href="#cta" class="btn btn--primary btn--large fade-up">
       まずは初回体験はこちら
       <span class="btn__arrow">→</span>
     </a>
-    <p class="hero__note">＼ 無理な勧誘は一切ありません ／</p>
+    <p class="hero__note fade-up">※ 勧誘は一切ありません</p>
   </div>
 
   <div class="hero__wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path d="M0,64 C240,120 480,0 720,40 C960,80 1200,110 1440,60 L1440,120 L0,120 Z" fill="#fdf6f0"/>
-    </svg>
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,64 C360,120 720,0 1080,48 C1260,72 1380,80 1440,72 L1440,120 L0,120 Z" fill="#fdf8f4"/></svg>
   </div>
 </header>
 
 <!-- ============ 共感パート ============ -->
-<section class="section section--cream" id="empathy">
+<section class="section section--cream" id="check">
   <div class="container">
-    <h2 class="section__title">こんな状態に<br class="sp-only">なっていませんか？</h2>
-    <p class="section__sub">当てはまるものに、チェックしてみてください</p>
+    <p class="section__eyebrow fade-up">CHECK</p>
+    <h2 class="section__title fade-up">こんな状態に<br class="sp-only" />なっていませんか？</h2>
 
-    <ul class="checklist">
-      <li><label class="check-item"><input type="checkbox"><span class="check-item__box" aria-hidden="true"></span><span class="check-item__text">夜になると不安が大きくなる</span></label></li>
-      <li><label class="check-item"><input type="checkbox"><span class="check-item__box" aria-hidden="true"></span><span class="check-item__text">同じ悩みを何度も考えてしまう</span></label></li>
-      <li><label class="check-item"><input type="checkbox"><span class="check-item__box" aria-hidden="true"></span><span class="check-item__text">友達には本音を言えない</span></label></li>
-      <li><label class="check-item"><input type="checkbox"><span class="check-item__box" aria-hidden="true"></span><span class="check-item__text">誰かに相談してもスッキリしない</span></label></li>
-      <li><label class="check-item"><input type="checkbox"><span class="check-item__box" aria-hidden="true"></span><span class="check-item__text">SNSを見ると余計に苦しくなる</span></label></li>
-      <li><label class="check-item"><input type="checkbox"><span class="check-item__box" aria-hidden="true"></span><span class="check-item__text">自分が何に悩んでいるのか分からない</span></label></li>
+    <ul class="checklist fade-up">
+      <li class="checklist__item"><label><input type="checkbox" /><span class="checklist__box"></span><span class="checklist__text">夜になると不安が大きくなる</span></label></li>
+      <li class="checklist__item"><label><input type="checkbox" /><span class="checklist__box"></span><span class="checklist__text">同じ悩みを何度も考えてしまう</span></label></li>
+      <li class="checklist__item"><label><input type="checkbox" /><span class="checklist__box"></span><span class="checklist__text">友達には本音を言えない</span></label></li>
+      <li class="checklist__item"><label><input type="checkbox" /><span class="checklist__box"></span><span class="checklist__text">誰かに相談してもスッキリしない</span></label></li>
+      <li class="checklist__item"><label><input type="checkbox" /><span class="checklist__box"></span><span class="checklist__text">SNSを見ると余計に苦しくなる</span></label></li>
+      <li class="checklist__item"><label><input type="checkbox" /><span class="checklist__box"></span><span class="checklist__text">自分が何に悩んでいるのか分からない</span></label></li>
     </ul>
 
-    <div class="checklist-result" id="checklistResult" hidden>
-      <p class="checklist-result__count"><span id="checkCount">0</span>個 当てはまりました</p>
-    </div>
-
-    <div class="empathy-conclusion">
-      <p>もし<strong>1つでも</strong>当てはまるなら、</p>
-      <p class="empathy-conclusion__main">
-        あなたに必要なのは「答え」ではなく<br>
-        <span class="marker">「整理する時間」</span>かもしれません。
+    <div class="check-result fade-up" id="checkResult">
+      <p class="check-result__lead">もし<em>1つでも</em>当てはまるなら、</p>
+      <p class="check-result__main">
+        あなたに必要なのは「答え」ではなく<br />
+        <strong>「整理する時間」</strong>かもしれません。
       </p>
     </div>
   </div>
 </section>
 
 <!-- ============ 問題提起 ============ -->
-<section class="section section--white" id="problem">
+<section class="section section--lavender">
   <div class="container">
-    <h2 class="section__title">あなたが苦しいのは、<br>悩みがあるからではありません。</h2>
+    <p class="section__eyebrow fade-up">WHY</p>
+    <h2 class="section__title fade-up">
+      あなたが苦しいのは、<br />
+      <span class="marker">悩みがあるからではありません。</span>
+    </h2>
 
-    <div class="tangle-visual">
-      <div class="tangle-visual__item">
-        <svg viewBox="0 0 200 160" aria-hidden="true">
-          <path d="M30,80 C60,20 90,140 100,70 C110,20 140,130 120,90 C100,50 160,40 150,90 C143,125 80,135 70,95 C62,62 130,55 140,110" fill="none" stroke="#b59ad6" stroke-width="6" stroke-linecap="round"/>
+    <p class="section__lead fade-up">
+      感情と思考が<br />
+      <strong>頭の中で絡まり続けている</strong>からです。
+    </p>
+
+    <!-- 絡まり→整理の視覚化 -->
+    <div class="untangle fade-up" aria-hidden="true">
+      <div class="untangle__side">
+        <svg viewBox="0 0 200 160" class="untangle__svg">
+          <path class="tangle-line tangle-line--1" d="M30,80 C60,20 90,140 120,60 C140,20 100,130 170,80" fill="none"/>
+          <path class="tangle-line tangle-line--2" d="M40,40 C100,120 60,30 130,110 C160,140 120,40 160,50" fill="none"/>
+          <path class="tangle-line tangle-line--3" d="M25,120 C80,60 110,150 150,70 C165,45 130,120 175,110" fill="none"/>
         </svg>
-        <p>感情と思考が<br>頭の中で絡まり続けている状態</p>
+        <p class="untangle__label">絡まった心</p>
       </div>
-      <div class="tangle-visual__arrow" aria-hidden="true">
-        <span>整理すると…</span>
-        <svg viewBox="0 0 60 24"><path d="M2,12 H50 M42,4 L52,12 L42,20" fill="none" stroke="#e8927c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="tangle-visual__item">
-        <svg viewBox="0 0 200 160" aria-hidden="true">
-          <path d="M30,40 H170" stroke="#7fb8a4" stroke-width="6" stroke-linecap="round"/>
-          <path d="M30,80 H170" stroke="#7fb8a4" stroke-width="6" stroke-linecap="round"/>
-          <path d="M30,120 H170" stroke="#7fb8a4" stroke-width="6" stroke-linecap="round"/>
+      <div class="untangle__arrow">整理すると…</div>
+      <div class="untangle__side">
+        <svg viewBox="0 0 200 160" class="untangle__svg">
+          <path class="straight-line straight-line--1" d="M30,45 L170,45" fill="none"/>
+          <path class="straight-line straight-line--2" d="M30,80 L170,80" fill="none"/>
+          <path class="straight-line straight-line--3" d="M30,115 L170,115" fill="none"/>
         </svg>
-        <p>1本ずつほどくと<br>心はすっと軽くなる</p>
+        <p class="untangle__label untangle__label--clear">ほどけた心</p>
       </div>
     </div>
 
-    <p class="problem-lead">例えば──</p>
-
-    <div class="depth-cards">
-      <div class="depth-card depth-card--1">
-        <span class="depth-card__label">表面の悩み</span>
+    <!-- 深掘りの例 -->
+    <div class="depth fade-up">
+      <p class="depth__intro">例えば──</p>
+      <div class="depth__step depth__step--1">
+        <span class="depth__tag">表面の悩み</span>
         <p>「仕事が辛い」</p>
       </div>
-      <div class="depth-arrow" aria-hidden="true">▼ <span>本当は…</span></div>
-      <div class="depth-card depth-card--2">
-        <span class="depth-card__label">その下にある気持ち</span>
+      <div class="depth__connector">↓ 整理してみると</div>
+      <div class="depth__step depth__step--2">
+        <span class="depth__tag">本当の悩み</span>
         <p>「評価されないことが辛い」</p>
       </div>
-      <div class="depth-arrow" aria-hidden="true">▼ <span>さらにその奥には…</span></div>
-      <div class="depth-card depth-card--3">
-        <span class="depth-card__label">いちばん奥の本音</span>
+      <div class="depth__connector">↓ さらにその奥には</div>
+      <div class="depth__step depth__step--3">
+        <span class="depth__tag">隠れた本音</span>
         <p>「認められたい」</p>
       </div>
     </div>
 
-    <div class="problem-conclusion">
-      <p>悩みは、<span class="marker">整理されるだけで<br class="sp-only">驚くほど軽くなる</span>ことがあります。</p>
-    </div>
+    <p class="section__conclusion fade-up">
+      悩みは、<strong class="big-text">整理されるだけで<br />驚くほど軽くなる</strong>ことがあります。
+    </p>
   </div>
 </section>
 
 <!-- ============ ベネフィット ============ -->
-<section class="section section--lavender" id="benefit">
+<section class="section section--cream">
   <div class="container">
-    <p class="section__eyebrow">BENEFIT</p>
-    <h2 class="section__title">心の整理室で得られること</h2>
+    <p class="section__eyebrow fade-up">BENEFIT</p>
+    <h2 class="section__title fade-up">心の整理室で<br class="sp-only" />得られること</h2>
 
-    <div class="benefit-grid">
-      <div class="benefit-card">
+    <div class="benefits">
+      <article class="benefit-card fade-up">
         <span class="benefit-card__num">01</span>
         <span class="benefit-card__icon">🧠</span>
         <h3>頭の中が整理される</h3>
         <p>モヤモヤの正体が見えるようになります。</p>
-      </div>
-      <div class="benefit-card">
+      </article>
+      <article class="benefit-card fade-up">
         <span class="benefit-card__num">02</span>
         <span class="benefit-card__icon">💗</span>
         <h3>自分の本音が分かる</h3>
         <p>他人の期待ではなく、自分が本当に望んでいることに気づけます。</p>
-      </div>
-      <div class="benefit-card">
+      </article>
+      <article class="benefit-card fade-up">
         <span class="benefit-card__num">03</span>
         <span class="benefit-card__icon">🌊</span>
         <h3>感情に振り回されなくなる</h3>
         <p>不安や焦りを客観的に見られるようになります。</p>
-      </div>
-      <div class="benefit-card">
+      </article>
+      <article class="benefit-card fade-up">
         <span class="benefit-card__num">04</span>
         <span class="benefit-card__icon">🤝</span>
         <h3>一人で抱え込まなくてよくなる</h3>
         <p>安心して話せる場所ができます。</p>
-      </div>
-      <div class="benefit-card benefit-card--wide">
+      </article>
+      <article class="benefit-card benefit-card--wide fade-up">
         <span class="benefit-card__num">05</span>
-        <span class="benefit-card__icon">🌸</span>
+        <span class="benefit-card__icon">🌷</span>
         <h3>自分を責める時間が減る</h3>
         <p>「私はおかしくなかったんだ」と思えるようになります。</p>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- ============ サービス内容 ============ -->
-<section class="section section--white" id="service">
+<section class="section section--white">
   <div class="container">
-    <p class="section__eyebrow">SERVICE</p>
-    <h2 class="section__title">サービス内容</h2>
+    <p class="section__eyebrow fade-up">SERVICE</p>
+    <h2 class="section__title fade-up">サービス内容</h2>
 
-    <div class="service-steps">
-      <div class="service-step">
-        <div class="service-step__head">
-          <span class="service-step__num">STEP 1</span>
-          <span class="service-step__icon">🗣️</span>
+    <div class="services">
+      <article class="service-card fade-up">
+        <div class="service-card__head">
+          <span class="service-card__icon">🗂</span>
           <h3>心の整理セッション</h3>
         </div>
-        <p>話しながら、一緒に整理します。</p>
-        <ul class="tag-list">
-          <li>事実</li><li>感情</li><li>不安</li><li>本音</li><li>望んでいる未来</li>
+        <p class="service-card__desc">話しながら、一緒に整理します。</p>
+        <ul class="service-card__list">
+          <li>事実</li>
+          <li>感情</li>
+          <li>不安</li>
+          <li>本音</li>
+          <li>望んでいる未来</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="service-step">
-        <div class="service-step__head">
-          <span class="service-step__num">STEP 2</span>
-          <span class="service-step__icon">📋</span>
+      <article class="service-card service-card--featured fade-up">
+        <span class="service-card__ribbon">話して終わりにしない</span>
+        <div class="service-card__head">
+          <span class="service-card__icon">📋</span>
           <h3>整理レポート</h3>
         </div>
-        <p>相談後にはレポートをまとめてお渡しします。<br><strong>話して終わりではありません。</strong></p>
-        <ul class="tag-list">
-          <li>今抱えている悩み</li><li>ストレス要因</li><li>思考パターン</li><li>次の一歩</li>
+        <p class="service-card__desc">相談後にまとめてお渡しします。</p>
+        <ul class="service-card__list">
+          <li>今抱えている悩み</li>
+          <li>ストレス要因</li>
+          <li>思考パターン</li>
+          <li>次の一歩</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="service-step">
-        <div class="service-step__head">
-          <span class="service-step__num">STEP 3</span>
-          <span class="service-step__icon">🌱</span>
+      <article class="service-card fade-up">
+        <div class="service-card__head">
+          <span class="service-card__icon">🌱</span>
           <h3>継続伴走サポート</h3>
         </div>
-        <p>必要な方には定期的な振り返りも行います。変化を記録しながら、少しずつ心を整えていきます。</p>
-      </div>
+        <p class="service-card__desc">必要な方には定期的な振り返りも。</p>
+        <ul class="service-card__list">
+          <li>変化を記録</li>
+          <li>定期的な振り返り</li>
+          <li>少しずつ心を整える</li>
+        </ul>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ============ ご利用者さまの声 ============ -->
-<section class="section section--cream" id="voice">
+<!-- ============ お客様の声 ============ -->
+<section class="section section--lavender">
   <div class="container">
-    <p class="section__eyebrow">VOICE</p>
-    <h2 class="section__title">ご利用者さまの声</h2>
+    <p class="section__eyebrow fade-up">VOICE</p>
+    <h2 class="section__title fade-up">ご利用者さまの声</h2>
 
-    <div class="voice-grid">
-      <figure class="voice-card">
-        <div class="voice-card__avatar" aria-hidden="true">👩</div>
-        <blockquote>悩みの答えをもらったわけではないのに、心がすごく軽くなりました。</blockquote>
-        <figcaption>29歳 女性</figcaption>
-        <div class="voice-card__stars" aria-hidden="true">★★★★★</div>
+    <div class="voices">
+      <figure class="voice fade-up">
+        <div class="voice__stars">★★★★★</div>
+        <blockquote>「悩みの答えをもらったわけではないのに、<strong>心がすごく軽くなりました</strong>。」</blockquote>
+        <figcaption><span class="voice__avatar">👩</span>29歳 女性</figcaption>
       </figure>
-      <figure class="voice-card">
-        <div class="voice-card__avatar" aria-hidden="true">👩‍💼</div>
-        <blockquote>自分でも気づいていなかった本音に気づけました。</blockquote>
-        <figcaption>32歳 女性</figcaption>
-        <div class="voice-card__stars" aria-hidden="true">★★★★★</div>
+      <figure class="voice fade-up">
+        <div class="voice__stars">★★★★★</div>
+        <blockquote>「自分でも気づいていなかった<strong>本音に気づけました</strong>。」</blockquote>
+        <figcaption><span class="voice__avatar">👩‍💼</span>32歳 女性</figcaption>
       </figure>
-      <figure class="voice-card">
-        <div class="voice-card__avatar" aria-hidden="true">👩‍🦰</div>
-        <blockquote>否定されずに話を聞いてもらえたことが救いでした。</blockquote>
-        <figcaption>35歳 女性</figcaption>
-        <div class="voice-card__stars" aria-hidden="true">★★★★★</div>
+      <figure class="voice fade-up">
+        <div class="voice__stars">★★★★★</div>
+        <blockquote>「<strong>否定されずに話を聞いてもらえた</strong>ことが救いでした。」</blockquote>
+        <figcaption><span class="voice__avatar">🧑‍🦰</span>35歳 女性</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
 <!-- ============ 他サービスとの違い ============ -->
-<section class="section section--white" id="difference">
+<section class="section section--white">
   <div class="container">
-    <p class="section__eyebrow">DIFFERENCE</p>
-    <h2 class="section__title">他サービスとの違い</h2>
+    <p class="section__eyebrow fade-up">DIFFERENCE</p>
+    <h2 class="section__title fade-up">他サービスとの違い</h2>
 
-    <div class="compare-grid">
-      <div class="compare-card">
-        <span class="compare-card__icon">🛋️</span>
-        <h3>カウンセリング</h3>
-        <p>問題解決を目指す</p>
+    <div class="compare fade-up">
+      <div class="compare__row">
+        <span class="compare__name">カウンセリング</span>
+        <span class="compare__arrow">→</span>
+        <span class="compare__goal">問題解決を目指す</span>
       </div>
-      <div class="compare-card">
-        <span class="compare-card__icon">🎯</span>
-        <h3>コーチング</h3>
-        <p>目標達成を目指す</p>
+      <div class="compare__row">
+        <span class="compare__name">コーチング</span>
+        <span class="compare__arrow">→</span>
+        <span class="compare__goal">目標達成を目指す</span>
       </div>
-      <div class="compare-card">
-        <span class="compare-card__icon">🔮</span>
-        <h3>占い</h3>
-        <p>答えを提示する</p>
+      <div class="compare__row">
+        <span class="compare__name">占い</span>
+        <span class="compare__arrow">→</span>
+        <span class="compare__goal">答えを提示する</span>
       </div>
-      <div class="compare-card compare-card--highlight">
-        <span class="compare-card__badge">私たちはここ</span>
-        <span class="compare-card__icon">🕊️</span>
-        <h3>心の整理室</h3>
-        <p>感情と思考を<strong>整理する</strong></p>
+      <div class="compare__row compare__row--us">
+        <span class="compare__name">心の整理室</span>
+        <span class="compare__arrow">→</span>
+        <span class="compare__goal">感情と思考を整理する</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
-<section class="section section--lavender" id="faq">
+<section class="section section--cream">
   <div class="container container--narrow">
-    <p class="section__eyebrow">FAQ</p>
-    <h2 class="section__title">よくあるご質問</h2>
+    <p class="section__eyebrow fade-up">FAQ</p>
+    <h2 class="section__title fade-up">よくあるご質問</h2>
 
-    <div class="faq-list">
-      <details class="faq-item">
-        <summary><span class="faq-item__q">Q</span>カウンセリングとの違いは？<span class="faq-item__toggle" aria-hidden="true"></span></summary>
-        <div class="faq-item__answer"><span class="faq-item__a">A</span><p>診断や治療を行うものではありません。安心して話しながら心を整理する伴走サービスです。</p></div>
+    <div class="faq fade-up">
+      <details class="faq__item">
+        <summary><span class="faq__q">Q</span>カウンセリングとの違いは？<span class="faq__toggle"></span></summary>
+        <div class="faq__answer"><span class="faq__a">A</span><p>診断や治療を行うものではありません。安心して話しながら心を整理する伴走サービスです。</p></div>
       </details>
-      <details class="faq-item">
-        <summary><span class="faq-item__q">Q</span>匿名でも利用できますか？<span class="faq-item__toggle" aria-hidden="true"></span></summary>
-        <div class="faq-item__answer"><span class="faq-item__a">A</span><p>可能です。顔出しも不要です。</p></div>
+      <details class="faq__item">
+        <summary><span class="faq__q">Q</span>匿名でも利用できますか？<span class="faq__toggle"></span></summary>
+        <div class="faq__answer"><span class="faq__a">A</span><p>可能です。顔出しも不要です。</p></div>
       </details>
-      <details class="faq-item">
-        <summary><span class="faq-item__q">Q</span>どんな悩みでも大丈夫ですか？<span class="faq-item__toggle" aria-hidden="true"></span></summary>
-        <div class="faq-item__answer"><span class="faq-item__a">A</span><p>恋愛、結婚、仕事、人間関係など幅広く対応しています。</p></div>
+      <details class="faq__item">
+        <summary><span class="faq__q">Q</span>どんな悩みでも大丈夫ですか？<span class="faq__toggle"></span></summary>
+        <div class="faq__answer"><span class="faq__a">A</span><p>恋愛、結婚、仕事、人間関係など幅広く対応しています。</p></div>
       </details>
-      <details class="faq-item">
-        <summary><span class="faq-item__q">Q</span>勧誘はありますか？<span class="faq-item__toggle" aria-hidden="true"></span></summary>
-        <div class="faq-item__answer"><span class="faq-item__a">A</span><p>ありません。無理な継続提案も行いません。</p></div>
+      <details class="faq__item">
+        <summary><span class="faq__q">Q</span>勧誘はありますか？<span class="faq__toggle"></span></summary>
+        <div class="faq__answer"><span class="faq__a">A</span><p>ありません。無理な継続提案も行いません。</p></div>
       </details>
     </div>
   </div>
 </section>
 
 <!-- ============ CTA ============ -->
-<section class="cta" id="cta">
+<section class="cta section" id="cta">
+  <div class="cta__stars" aria-hidden="true"></div>
   <div class="container container--narrow">
-    <p class="cta__limited">＼ 今だけ初回限定 ／</p>
+    <p class="cta__limited fade-up">＼ 今だけ初回限定 ／</p>
 
-    <div class="price-box">
-      <p class="price-box__before">通常60分 <s>10,000円</s></p>
-      <div class="price-box__arrow" aria-hidden="true">▼</div>
-      <p class="price-box__label">初回体験価格</p>
-      <p class="price-box__price"><span class="price-box__num">3,000</span>円<span class="price-box__tax">（税込）</span></p>
+    <div class="price-card fade-up">
+      <p class="price-card__before">通常60分セッション</p>
+      <div class="price-card__arrow">↓</div>
+      <p class="price-card__label">初回体験価格</p>
+      <p class="price-card__price"><span class="price-card__num">○○</span><span class="price-card__yen">円</span></p>
+
+      <div class="price-card__gift">
+        <span class="price-card__gift-icon">🎁</span>
+        <div>
+          <p class="price-card__gift-label">さらに初回利用者限定</p>
+          <p class="price-card__gift-name">「心の整理シート」プレゼント</p>
+        </div>
+      </div>
     </div>
 
-    <div class="gift-box">
-      <span class="gift-box__icon">🎁</span>
-      <p>さらに初回利用者限定<br><strong>「心の整理シート」プレゼント</strong></p>
-    </div>
-
-    <p class="cta__message">
-      一人で抱え続ける前に、<br>
-      まずは一度<br>
-      <strong>心の中を言葉にしてみませんか？</strong>
+    <p class="cta__message fade-up">
+      一人で抱え続ける前に、<br />
+      まずは一度<strong>心の中を言葉にしてみませんか？</strong>
     </p>
 
-    <a href="#" class="btn btn--primary btn--lg btn--pulse">
+    <a href="#" class="btn btn--cta btn--large fade-up">
       初回相談を予約する
       <span class="btn__arrow">→</span>
     </a>
-    <p class="cta__note">顔出し不要・匿名OK・勧誘なし</p>
+
+    <ul class="cta__badges fade-up">
+      <li>🙈 顔出し不要</li>
+      <li>🔒 匿名OK</li>
+      <li>💬 LINE相談可能</li>
+      <li>🚫 勧誘なし</li>
+    </ul>
   </div>
 </section>
 
-<!-- ============ 継続（次のステップ） ============ -->
-<section class="section section--night" id="next">
+<!-- ============ 継続 ============ -->
+<section class="section section--white next-step">
   <div class="container container--narrow">
-    <h2 class="section__title section__title--light">一度きりで終わらせない</h2>
-    <p class="next__text">
-      相談履歴や整理シートを蓄積し、<br>
-      過去の自分との変化を<strong>見える化</strong>します。
-    </p>
-    <div class="next-visual" aria-hidden="true">
-      <div class="next-visual__step"><span>😢</span><p>悩みで<br>いっぱい</p></div>
-      <span class="next-visual__line"></span>
-      <div class="next-visual__step"><span>🌥️</span><p>少しずつ<br>整理</p></div>
-      <span class="next-visual__line"></span>
-      <div class="next-visual__step"><span>🌤️</span><p>変化に<br>気づく</p></div>
-      <span class="next-visual__line"></span>
-      <div class="next-visual__step"><span>☀️</span><p>向き合える<br>自分に</p></div>
+    <p class="section__eyebrow fade-up">NEXT STEP</p>
+    <h2 class="section__title fade-up">一度きりで終わらせない</h2>
+
+    <div class="next-step__visual fade-up" aria-hidden="true">
+      <div class="growth">
+        <span class="growth__dot growth__dot--1">🌑</span>
+        <span class="growth__line"></span>
+        <span class="growth__dot growth__dot--2">🌗</span>
+        <span class="growth__line"></span>
+        <span class="growth__dot growth__dot--3">🌕</span>
+      </div>
+      <p class="growth__caption">過去の自分との変化を、見える化。</p>
     </div>
-    <p class="next__message">
-      悩みを解決する場所ではなく、<br>
-      <span class="marker marker--light">悩みと向き合える自分を育てる場所へ。</span>
+
+    <p class="next-step__text fade-up">
+      相談履歴や整理シートを蓄積し、<br />
+      過去の自分との変化を見える化します。
     </p>
-    <p class="next__closing">あなたのペースで、<br>少しずつ心を整えていきましょう。</p>
-    <a href="#cta" class="btn btn--outline">初回体験の詳細を見る</a>
+
+    <p class="next-step__copy fade-up">
+      悩みを<em>解決する</em>場所ではなく、<br />
+      <strong>悩みと向き合える自分を育てる場所へ。</strong>
+    </p>
+
+    <p class="next-step__close fade-up">
+      あなたのペースで、<br />
+      少しずつ心を整えていきましょう。
+    </p>
+
+    <a href="#cta" class="btn btn--primary fade-up">初回体験の詳細を見る</a>
   </div>
 </section>
 
 <footer class="footer">
-  <p>看護師伴走型「誰にも言えない心の整理室」</p>
-  <small>&copy; 2026 心の整理室</small>
+  <p class="footer__brand">看護師伴走型「誰にも言えない心の整理室」</p>
+  <p class="footer__copy">&copy; 2026 心の整理室</p>
 </footer>
 
-<!-- 追従CTAバー -->
+<!-- 追従CTA -->
 <div class="sticky-cta" id="stickyCta">
-  <a href="#cta" class="btn btn--primary btn--full">初回体験を予約する（今だけ3,000円）</a>
+  <a href="#cta" class="btn btn--cta btn--sticky">＼今だけ初回限定価格／ 初回相談を予約する</a>
 </div>
 
 <script src="script.js"></script>
