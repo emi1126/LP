@@ -350,7 +350,7 @@
       まずは一度<strong>心の中を言葉にしてみませんか？</strong>
     </p>
 
-    <a href="#" class="btn btn--cta btn--large fade-up">
+    <a href="#form" class="btn btn--cta btn--large fade-up">
       初回相談を予約する
       <span class="btn__arrow">→</span>
     </a>
@@ -361,6 +361,76 @@
       <li>💬 LINE相談可能</li>
       <li>🚫 勧誘なし</li>
     </ul>
+  </div>
+</section>
+
+<!-- ============ お問い合わせ / 予約フォーム ============ -->
+<section class="section section--cream form-section" id="form">
+  <div class="container container--narrow">
+    <p class="section__eyebrow fade-up">RESERVATION</p>
+    <h2 class="section__title fade-up">初回相談の<br class="sp-only" />お申し込み</h2>
+    <p class="form-section__lead fade-up">
+      下記フォームよりお気軽にお申し込みください。<br />
+      <strong>ニックネーム・匿名でのご相談もOK</strong>です。
+    </p>
+
+    <form class="reserve-form fade-up" id="reserveForm" novalidate>
+      <div class="form-row">
+        <label class="form-label" for="f-name">お名前 / ニックネーム<span class="req">必須</span></label>
+        <input class="form-input" type="text" id="f-name" name="name" placeholder="例）はる" required />
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="f-email">メールアドレス<span class="req">必須</span></label>
+        <input class="form-input" type="email" id="f-email" name="email" placeholder="例）example@mail.com" required />
+        <p class="form-hint">ご予約確定のご連絡にのみ使用します。</p>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="f-method">ご希望の相談方法<span class="req">必須</span></label>
+        <div class="form-select-wrap">
+          <select class="form-input" id="f-method" name="method" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="LINE">LINE相談</option>
+            <option value="ビデオ通話">ビデオ通話</option>
+            <option value="電話">電話</option>
+            <option value="まだ決めていない">まだ決めていない</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="f-date">ご希望の日時<span class="opt">任意</span></label>
+        <input class="form-input" type="text" id="f-date" name="preferredDate" placeholder="例）平日の夜 / 6月20日 21時ごろ" />
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="f-message">ご相談内容・伝えたいこと<span class="opt">任意</span></label>
+        <textarea class="form-input form-textarea" id="f-message" name="message" rows="5" placeholder="まだうまく言葉にできなくても大丈夫です。今の気持ちを少しだけでも教えてください。"></textarea>
+      </div>
+
+      <!-- スパム対策（人には見えない） -->
+      <input type="text" name="company" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <label class="form-agree">
+        <input type="checkbox" id="f-agree" name="agree" required />
+        <span class="form-agree__box"></span>
+        <span class="form-agree__text">プライバシーの取り扱いに同意します<span class="req">必須</span></span>
+      </label>
+
+      <button type="submit" class="btn btn--cta btn--large form-submit" id="submitBtn">
+        この内容で申し込む
+        <span class="btn__arrow">→</span>
+      </button>
+
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+
+      <ul class="form-badges">
+        <li>🙈 顔出し不要</li>
+        <li>🔒 匿名OK</li>
+        <li>🚫 勧誘なし</li>
+      </ul>
+    </form>
   </div>
 </section>
 
@@ -400,6 +470,62 @@
   </div>
 </section>
 
+<!-- ============ お問い合わせフォーム ============ -->
+<section class="section section--lavender form-section" id="contact">
+  <div class="container container--narrow">
+    <p class="section__eyebrow fade-up">CONTACT</p>
+    <h2 class="section__title fade-up">お問い合わせ</h2>
+    <p class="form-section__lead fade-up">
+      ご相談・ご質問は下記フォームよりお送りください。<br />
+      内容を確認のうえ、折り返しご連絡いたします。
+    </p>
+
+    <form class="reserve-form fade-up" id="contactForm" novalidate>
+      <div class="form-row">
+        <label class="form-label" for="c-name">お名前<span class="req">必須</span></label>
+        <input class="form-input" type="text" id="c-name" name="name" placeholder="例）山田 はる" required />
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="c-email">メールアドレス<span class="req">必須</span></label>
+        <input class="form-input" type="email" id="c-email" name="email" placeholder="例）example@mail.com" required />
+        <p class="form-hint">ご返信のためにのみ使用します。</p>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="c-company">会社名<span class="opt">任意</span></label>
+        <input class="form-input" type="text" id="c-company" name="company" placeholder="例）株式会社○○" />
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="c-phone">電話番号<span class="opt">任意</span></label>
+        <input class="form-input" type="tel" id="c-phone" name="phone" placeholder="例）090-1234-5678" />
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="c-message">お問い合わせ内容<span class="req">必須</span></label>
+        <textarea class="form-input form-textarea" id="c-message" name="message" rows="5" placeholder="ご相談内容をご自由にご記入ください" required></textarea>
+      </div>
+
+      <!-- スパム対策（人には見えない） -->
+      <input type="text" name="website" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <label class="form-agree">
+        <input type="checkbox" id="c-agree" name="agree" required />
+        <span class="form-agree__box"></span>
+        <span class="form-agree__text">プライバシーの取り扱いに同意します<span class="req">必須</span></span>
+      </label>
+
+      <button type="submit" class="btn btn--primary btn--large form-submit" id="contactSubmitBtn">
+        この内容で送信する
+        <span class="btn__arrow">→</span>
+      </button>
+
+      <p class="form-status" id="contactStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
 <footer class="footer">
   <p class="footer__brand">看護師伴走型「誰にも言えない心の整理室」</p>
   <p class="footer__copy">&copy; 2026 心の整理室</p>
@@ -407,7 +533,7 @@
 
 <!-- 追従CTA -->
 <div class="sticky-cta" id="stickyCta">
-  <a href="#cta" class="btn btn--cta btn--sticky">＼今だけ初回限定価格／ 初回相談を予約する</a>
+  <a href="#form" class="btn btn--cta btn--sticky">＼今だけ初回限定価格／ 初回相談を予約する</a>
 </div>
 
 <script src="script.js"></script>

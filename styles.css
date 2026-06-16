@@ -1004,9 +1004,195 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   font-size: 1rem;
 }
 
+/* ============ 予約フォーム ============ */
+.form-section__lead {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin-bottom: 44px;
+}
+.form-section__lead strong {
+  color: var(--accent-deep);
+  background: linear-gradient(transparent 62%, rgba(245, 212, 145, 0.6) 62%);
+  padding: 0 4px;
+}
+
+.reserve-form {
+  background: var(--white);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 48px 40px;
+  text-align: left;
+  border-top: 5px solid var(--accent);
+}
+
+.form-row { margin-bottom: 26px; }
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+.req, .opt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 2px 9px;
+  color: #fff;
+}
+.req { background: var(--accent-deep); }
+.opt { background: #c9c3d8; }
+
+.form-input {
+  width: 100%;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--cream);
+  border: 2px solid #efe7e0;
+  border-radius: 14px;
+  padding: 15px 18px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.form-input::placeholder { color: #b8b2c2; }
+.form-input:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(232, 154, 174, 0.16);
+}
+.form-textarea { resize: vertical; line-height: 1.8; min-height: 120px; }
+
+.form-hint {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+.form-select-wrap { position: relative; }
+.form-select-wrap::after {
+  content: "▼";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color: var(--accent-deep);
+  pointer-events: none;
+}
+select.form-input {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-right: 44px;
+}
+
+/* スパム対策のハニーポット */
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form-agree {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  margin: 4px 0 30px;
+  user-select: none;
+}
+.form-agree input { display: none; }
+.form-agree__box {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border: 2.5px solid var(--accent);
+  border-radius: 7px;
+  position: relative;
+  transition: background 0.25s ease;
+}
+.form-agree__box::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.form-agree input:checked + .form-agree__box { background: var(--accent); }
+.form-agree input:checked + .form-agree__box::after { opacity: 1; transform: scale(1); }
+.form-agree__text { font-size: 0.95rem; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; }
+
+.form-submit { width: 100%; }
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  animation: none;
+  transform: none;
+}
+
+.form-status {
+  text-align: center;
+  font-weight: 700;
+  margin-top: 18px;
+  min-height: 1.4em;
+  font-size: 0.98rem;
+}
+.form-status--ok { color: #2e9c7e; }
+.form-status--ng { color: var(--accent-deep); }
+
+.form-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 24px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+/* 送信完了メッセージ */
+.form-done {
+  text-align: center;
+  padding: 30px 10px;
+}
+.form-done__icon {
+  font-size: 3.4rem;
+  display: block;
+  margin-bottom: 16px;
+  animation: float 4s ease-in-out infinite;
+}
+.form-done__title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--accent-deep);
+  margin-bottom: 14px;
+}
+.form-done__text {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  line-height: 2;
+}
+
 /* ============ レスポンシブ ============ */
 @media (max-width: 760px) {
   .section { padding: 72px 20px; }
+
+  .reserve-form { padding: 32px 22px; }
 
   .checklist { grid-template-columns: 1fr; }
   .benefits { grid-template-columns: 1fr; }

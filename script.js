@@ -58,16 +58,18 @@ checkboxes.forEach((cb) => {
 // 追従CTA: ファーストビューを過ぎたら表示、CTAセクション付近では隠す
 const stickyCta = document.getElementById("stickyCta");
 const hero = document.querySelector(".hero");
-const ctaSection = document.getElementById("cta");
+const ctaTargets = [
+  document.getElementById("cta"),
+  document.getElementById("form"),
+].filter(Boolean);
 
 function updateStickyCta() {
   if (!stickyCta || !hero) return;
   const heroBottom = hero.getBoundingClientRect().bottom;
-  let nearCta = false;
-  if (ctaSection) {
-    const rect = ctaSection.getBoundingClientRect();
-    nearCta = rect.top < window.innerHeight && rect.bottom > 0;
-  }
+  const nearCta = ctaTargets.some((el) => {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  });
   if (heroBottom < 0 && !nearCta) {
     stickyCta.classList.add("is-shown");
   } else {
@@ -77,3 +79,186 @@ function updateStickyCta() {
 
 window.addEventListener("scroll", updateStickyCta, { passive: true });
 updateStickyCta();
+
+// ============================================
+// ページ内アンカー: 飛ぶ先を確実に表示してスクロール
+//   （fade-up が opacity:0 のまま「開かない」のを防ぐ）
+// ============================================
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (e) => {
+    const id = link.getAttribute("href");
+    if (!id || id === "#") return;
+    const target = document.querySelector(id);
+    if (!target) return;
+
+    e.preventDefault();
+
+    // 飛ぶ先のセクションとその中の fade-up を即時に表示
+    target.classList.add("is-visible");
+    target.querySelectorAll(".fade-up").forEach((el) => {
+      el.classList.add("is-visible");
+    });
+
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", id);
+  });
+});
+
+// ============================================
+// 予約フォーム送信 → GAS → スプレッドシート
+// ============================================
+
+// ★ GAS（ウェブアプリ）のデプロイURLをここに貼り付けてください
+const GAS_ENDPOINT =
+"https://script.google.com/macros/s/AKfycbyYJ1iYXV4u2NaYSDj8jGk8xyCSJsBCGJan8YQ7lWLk8LUs4D-FJA78olitfy97UgVK/exec";
+
+const reserveForm = document.getElementById("reserveForm");
+
+if (reserveForm) {
+  const submitBtn = document.getElementById("submitBtn");
+  const statusEl = document.getElementById("formStatus");
+
+  const setStatus = (msg, type) => {
+    statusEl.textContent = msg;
+    statusEl.className = "form-status" + (type ? " form-status--" + type : "");
+  };
+
+  reserveForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // ハニーポット（ボットが入力したら無言で中断）
+    if (reserveForm.company.value) return;
+
+    // 必須項目の簡易チェック
+    if (!reserveForm.checkValidity()) {
+      reserveForm.reportValidity();
+      return;
+    }
+
+    const data = {
+      formType: "reservation",
+      name: reserveForm.name.value.trim(),
+      email: reserveForm.email.value.trim(),
+      method: reserveForm.method.value,
+      preferredDate: reserveForm.preferredDate.value.trim(),
+      message: reserveForm.message.value.trim(),
+      pageUrl: location.href,
+    };
+
+    submitBtn.disabled = true;
+    setStatus("送信しています…", "");
+
+    try {
+      const res = await fetch(GAS_ENDPOINT, {
+        method: "POST",
+        // text/plain にすることで CORS プリフライトを回避
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json().catch(() => ({ result: "error" }));
+
+      if (res.ok && result.result === "success") {
+        showThanks();
+      } else {
+        throw new Error(result.message || "送信に失敗しました");
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      setStatus(
+        "送信に失敗しました。お手数ですが時間をおいて再度お試しください。",
+        "ng"
+      );
+      console.error(err);
+    }
+  });
+
+  // 送信完了画面に差し替え
+  function showThanks() {
+    reserveForm.innerHTML = `
+      <div class="form-done">
+        <span class="form-done__icon">🕊️</span>
+        <p class="form-done__title">お申し込みありがとうございます</p>
+        <p class="form-done__text">
+          ご入力いただいたメールアドレス宛に、<br />
+          担当より折り返しご連絡いたします。<br />
+          まずはゆっくり、心の準備だけ整えてお待ちください。
+        </p>
+      </div>
+    `;
+  }
+}
+
+// ============================================
+// お問い合わせフォーム送信 → GAS → スプレッドシート
+// ============================================
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  const submitBtn = document.getElementById("contactSubmitBtn");
+  const statusEl = document.getElementById("contactStatus");
+
+  const setStatus = (msg, type) => {
+    statusEl.textContent = msg;
+    statusEl.className = "form-status" + (type ? " form-status--" + type : "");
+  };
+
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // ハニーポット（ボット対策）
+    if (contactForm.website.value) return;
+
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
+    const data = {
+      formType: "inquiry",
+      name: contactForm.name.value.trim(),
+      email: contactForm.email.value.trim(),
+      company: contactForm.company.value.trim(),
+      phone: contactForm.phone.value.trim(),
+      message: contactForm.message.value.trim(),
+      pageUrl: location.href,
+    };
+
+    submitBtn.disabled = true;
+    setStatus("送信しています…", "");
+
+    try {
+      const res = await fetch(GAS_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json().catch(() => ({ result: "error" }));
+
+      if (res.ok && result.result === "success") {
+        contactForm.innerHTML = `
+          <div class="form-done">
+            <span class="form-done__icon">✉️</span>
+            <p class="form-done__title">お問い合わせありがとうございます</p>
+            <p class="form-done__text">
+              内容を確認のうえ、<br />
+              ご入力いただいたメールアドレス宛に<br />
+              担当より折り返しご連絡いたします。
+            </p>
+          </div>
+        `;
+      } else {
+        throw new Error(result.message || "送信に失敗しました");
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      setStatus(
+        "送信に失敗しました。お手数ですが時間をおいて再度お試しください。",
+        "ng"
+      );
+      console.error(err);
+    }
+  });
+}
