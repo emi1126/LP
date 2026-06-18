@@ -1047,9 +1047,13 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
 .opt { background: #c9c3d8; }
 
 .form-input {
+  display: block;
+  box-sizing: border-box;
   width: 100%;
+  height: 56px;
   font-family: var(--font-main);
   font-size: 1rem;
+  line-height: 1.5;
   color: var(--ink);
   background: var(--cream);
   border: 2px solid #efe7e0;
@@ -1057,6 +1061,8 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   padding: 15px 18px;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
+/* テキストエリアだけは高さ可変 */
+textarea.form-input { height: auto; }
 .form-input::placeholder { color: #b8b2c2; }
 .form-input:focus {
   outline: none;
