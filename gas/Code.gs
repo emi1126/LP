@@ -22,7 +22,7 @@ const SHEET_RESERVATION = 'お申し込み';   // 予約フォーム
 const SHEET_INQUIRY = 'お問い合わせ';      // お問い合わせフォーム
 
 // 申し込み・問い合わせがあったときに通知を受け取るメール（不要なら '' のままでOK）
-const NOTIFY_EMAIL = '';
+const NOTIFY_EMAIL = 'emi.skm1008@gmail.com';
 
 /**
  * フォームからの POST を受け取る
