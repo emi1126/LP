@@ -108,6 +108,32 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   overflow: hidden;
 }
 
+/* 背景動画 */
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* ぼかしは弱め。scaleでぼかしによる縁のにじみを画面外へ逃がす */
+  filter: blur(3px);
+  transform: scale(1.06);
+  pointer-events: none;
+}
+
+/* 動画の上に夜空トーンを薄くかけて文字を読みやすく */
+.hero__video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(27, 35, 71, 0.75) 0%,
+    rgba(44, 49, 99, 0.6) 55%,
+    rgba(68, 61, 122, 0.7) 100%
+  );
+  pointer-events: none;
+}
+
 /* 星空 */
 .hero__stars,
 .cta__stars {
