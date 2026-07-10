@@ -108,19 +108,44 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   overflow: hidden;
 }
 
-/* 最初の1画面：キャッチコピー〜吹き出しまでを収める */
+/* 最初の1画面：吹き出しまでを画面いっぱいに */
 .hero__first-view {
+  position: relative;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(48px, 8vh, 90px) 0 clamp(24px, 4vh, 48px);
+  padding: clamp(48px, 8vh, 90px) 0 clamp(56px, 9vh, 88px);
   box-sizing: border-box;
 }
 
-/* スクロール後に表示：メッセージ・CTA */
+/* スクロールを促すヒント（1画面目の下端に固定） */
+.hero__scroll-hint {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+}
+.hero__scroll-arrow {
+  display: inline-block;
+  animation: scrollBounce 1.8s ease-in-out infinite;
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(7px); opacity: 1; }
+}
+
+/* スクロール後に見える部分 */
 .hero__continue {
-  padding-top: clamp(48px, 10vh, 96px);
+  padding-top: clamp(32px, 6vh, 56px);
 }
 
 /* 背景動画（薄いぼかし付き） */
@@ -1249,8 +1274,7 @@ select.form-input {
   .voices { grid-template-columns: 1fr; }
 
   .hero { padding: 0 20px 120px; }
-  .hero__first-view { padding: 48px 0 24px; }
-  .hero__continue { padding-top: 48px; }
+  .hero__first-view { padding: 40px 0 64px; }
   .hero__moon { width: 60px; height: 60px; right: 6%; top: 30px; }
   .hero__bubbles { gap: 10px; }
   .bubble { font-size: 0.85rem; padding: 12px 16px; }
