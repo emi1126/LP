@@ -104,34 +104,51 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   background: linear-gradient(180deg, var(--night-1) 0%, var(--night-2) 55%, var(--night-3) 100%);
   color: #fff;
   text-align: center;
-  padding: 90px 24px 140px;
+  padding: 0 24px 140px;
   overflow: hidden;
 }
 
-/* 背景動画 */
+/* 最初の1画面：キャッチコピー〜吹き出しまでを収める */
+.hero__first-view {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(48px, 8vh, 90px) 0 clamp(24px, 4vh, 48px);
+  box-sizing: border-box;
+}
+
+/* スクロール後に表示：メッセージ・CTA */
+.hero__continue {
+  padding-top: clamp(48px, 10vh, 96px);
+}
+
+/* 背景動画（薄いぼかし付き） */
 .hero__video {
   position: absolute;
   inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero__video video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* ぼかしは弱め。scaleでぼかしによる縁のにじみを画面外へ逃がす */
-  filter: blur(3px);
+  /* ぼかしで縁が白く滲むのを防ぐため少し拡大 */
+  filter: blur(3px) brightness(0.9);
   transform: scale(1.06);
-  pointer-events: none;
 }
-
-/* 動画の上に夜空トーンを薄くかけて文字を読みやすく */
-.hero__video-overlay {
+/* 文字を読みやすくする半透明の夜空オーバーレイ */
+.hero__video::after {
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(27, 35, 71, 0.75) 0%,
+    rgba(27, 35, 71, 0.72) 0%,
     rgba(44, 49, 99, 0.6) 55%,
-    rgba(68, 61, 122, 0.7) 100%
+    rgba(68, 61, 122, 0.72) 100%
   );
-  pointer-events: none;
 }
 
 /* 星空 */
@@ -1231,7 +1248,9 @@ select.form-input {
   .services { grid-template-columns: 1fr; gap: 30px; }
   .voices { grid-template-columns: 1fr; }
 
-  .hero { padding: 64px 20px 120px; }
+  .hero { padding: 0 20px 120px; }
+  .hero__first-view { padding: 48px 0 24px; }
+  .hero__continue { padding-top: 48px; }
   .hero__moon { width: 60px; height: 60px; right: 6%; top: 30px; }
   .hero__bubbles { gap: 10px; }
   .bubble { font-size: 0.85rem; padding: 12px 16px; }

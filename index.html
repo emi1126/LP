@@ -14,50 +14,57 @@
 
 <!-- ============ ファーストビュー ============ -->
 <header class="hero">
-  <video class="hero__video" autoplay muted loop playsinline aria-hidden="true">
-    <source src="asset/video/背景動画.mp4" type="video/mp4" />
-  </video>
-  <div class="hero__video-overlay" aria-hidden="true"></div>
+  <div class="hero__video" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="assets/hero-bg.mp4" type="video/mp4" />
+    </video>
+  </div>
   <div class="hero__stars" aria-hidden="true"></div>
   <div class="hero__moon" aria-hidden="true"></div>
 
   <div class="hero__inner">
-    <p class="hero__eyebrow fade-up">看護師伴走型「誰にも言えない心の整理室」</p>
+    <!-- 最初の1画面：キャッチコピー〜悩みの吹き出し -->
+    <div class="hero__first-view">
+      <p class="hero__eyebrow fade-up">看護師伴走型「誰にも言えない心の整理室」</p>
 
-    <h1 class="hero__title fade-up">
-      <span class="hero__title-line">誰にも言えないことを、</span>
-      <span class="hero__title-line hero__title-line--accent">安心して話せる場所</span>
-    </h1>
+      <h1 class="hero__title fade-up">
+        <span class="hero__title-line">誰にも言えないことを、</span>
+        <span class="hero__title-line hero__title-line--accent">安心して話せる場所</span>
+      </h1>
 
-    <p class="hero__lead fade-up">
-      夜になると、<br />
-      考え事が止まらなくなることはありませんか？
-    </p>
+      <p class="hero__lead fade-up">
+        夜になると、<br />
+        考え事が止まらなくなることはありませんか？
+      </p>
 
-    <!-- 浮かぶ悩みの吹き出し -->
-    <div class="hero__bubbles fade-up">
-      <p class="bubble bubble--1">本当にこの人と<br />結婚していいのかな</p>
-      <p class="bubble bubble--2">仕事を<br />続けるべき？</p>
-      <p class="bubble bubble--3">私が我慢すれば<br />いいのかな</p>
-      <p class="bubble bubble--4">何が苦しいのか<br />自分でも分からない</p>
+      <!-- 浮かぶ悩みの吹き出し -->
+      <div class="hero__bubbles fade-up">
+        <p class="bubble bubble--1">本当にこの人と<br />結婚していいのかな</p>
+        <p class="bubble bubble--2">仕事を<br />続けるべき？</p>
+        <p class="bubble bubble--3">私が我慢すれば<br />いいのかな</p>
+        <p class="bubble bubble--4">何が苦しいのか<br />自分でも分からない</p>
+      </div>
     </div>
 
-    <p class="hero__message fade-up">
-      答えを出す前に、<br />
-      <strong>まずは心の中を整理してみませんか？</strong>
-    </p>
+    <!-- スクロール後に表示：メッセージ・CTA -->
+    <div class="hero__continue">
+      <p class="hero__message fade-up">
+        答えを出す前に、<br />
+        <strong>まずは心の中を整理してみませんか？</strong>
+      </p>
 
-    <ul class="hero__badges fade-up">
-      <li class="badge"><span class="badge__icon">🙈</span>顔出し不要</li>
-      <li class="badge"><span class="badge__icon">🔒</span>匿名OK</li>
-      <li class="badge"><span class="badge__icon">💬</span>LINE相談可能</li>
-    </ul>
+      <ul class="hero__badges fade-up">
+        <li class="badge"><span class="badge__icon">🙈</span>顔出し不要</li>
+        <li class="badge"><span class="badge__icon">🔒</span>匿名OK</li>
+        <li class="badge"><span class="badge__icon">💬</span>LINE相談可能</li>
+      </ul>
 
-    <a href="#form" class="btn btn--primary btn--large fade-up">
-      まずは初回体験はこちら
-      <span class="btn__arrow">→</span>
-    </a>
-    <p class="hero__note fade-up">※ 勧誘は一切ありません</p>
+      <a href="#form" class="btn btn--primary btn--large fade-up">
+        まずは初回体験はこちら
+        <span class="btn__arrow">→</span>
+      </a>
+      <p class="hero__note fade-up">※ 勧誘は一切ありません</p>
+    </div>
   </div>
 
   <div class="hero__wave" aria-hidden="true">
