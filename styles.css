@@ -148,12 +148,16 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   padding-top: clamp(32px, 6vh, 56px);
 }
 
-/* 背景動画（薄いぼかし付き） */
+/* 背景動画（薄いぼかし付き・ファーストビューの1画面分に表示） */
 .hero__video {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100svh;
   z-index: 0;
   pointer-events: none;
+  overflow: hidden;
 }
 .hero__video video {
   width: 100%;
@@ -163,16 +167,17 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   filter: blur(3px) brightness(0.9);
   transform: scale(1.06);
 }
-/* 文字を読みやすくする半透明の夜空オーバーレイ */
+/* 文字を読みやすくしつつ、下端は夜空グラデーションへ溶け込ませる */
 .hero__video::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(27, 35, 71, 0.72) 0%,
-    rgba(44, 49, 99, 0.6) 55%,
-    rgba(68, 61, 122, 0.72) 100%
+    rgba(27, 35, 71, 0.55) 0%,
+    rgba(44, 49, 99, 0.45) 60%,
+    rgba(44, 49, 99, 0.75) 85%,
+    var(--night-2) 100%
   );
 }
 
