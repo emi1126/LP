@@ -195,13 +195,52 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
     radial-gradient(1px 1px at 88% 55%, #ffffffcc, transparent),
     radial-gradient(1.5px 1.5px at 18% 75%, #ffffff99, transparent),
     radial-gradient(1px 1px at 55% 78%, #ffffffbb, transparent),
-    radial-gradient(2px 2px at 92% 80%, #ffffff88, transparent);
+    radial-gradient(2px 2px at 92% 80%, #ffffff88, transparent),
+    radial-gradient(1px 1px at 5% 45%, #ffffffdd, transparent),
+    radial-gradient(1.5px 1.5px at 8% 8%, #ffffffbb, transparent),
+    radial-gradient(1px 1px at 21% 38%, #ffffff99, transparent),
+    radial-gradient(2px 2px at 33% 82%, #ffffffaa, transparent),
+    radial-gradient(1px 1px at 38% 30%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 42% 55%, #ffffffcc, transparent),
+    radial-gradient(1px 1px at 50% 5%, #ffffffdd, transparent),
+    radial-gradient(1px 1px at 58% 25%, #ffffff99, transparent),
+    radial-gradient(1.5px 1.5px at 66% 68%, #ffffffbb, transparent),
+    radial-gradient(1px 1px at 70% 10%, #fff, transparent),
+    radial-gradient(2px 2px at 78% 48%, #ffffff99, transparent),
+    radial-gradient(1px 1px at 82% 70%, #ffffffcc, transparent),
+    radial-gradient(1.5px 1.5px at 95% 35%, #ffffffdd, transparent),
+    radial-gradient(1px 1px at 97% 12%, #ffffffaa, transparent),
+    radial-gradient(1px 1px at 3% 90%, #ffffffbb, transparent),
+    radial-gradient(1.5px 1.5px at 25% 92%, #ffffff88, transparent),
+    radial-gradient(1px 1px at 48% 88%, #ffffffcc, transparent),
+    radial-gradient(1px 1px at 68% 90%, #ffffffaa, transparent),
+    radial-gradient(1.5px 1.5px at 85% 92%, #ffffffbb, transparent);
   animation: twinkle 4s ease-in-out infinite alternate;
   pointer-events: none;
 }
 @keyframes twinkle {
   from { opacity: 0.55; }
   to { opacity: 1; }
+}
+
+/* 流れ星（JSで2分ごとに生成） */
+.shooting-star {
+  position: absolute;
+  left: -12%;
+  width: 130px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), #fff 55%, #fffbe8);
+  box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.55);
+  transform: rotate(18deg);
+  animation: shoot 1.8s ease-out forwards;
+  pointer-events: none;
+  z-index: 1;
+}
+@keyframes shoot {
+  0% { transform: translate(0, 0) rotate(18deg); opacity: 0; }
+  8% { opacity: 1; }
+  100% { transform: translate(115vw, 38vw) rotate(18deg); opacity: 0; }
 }
 
 .hero__moon {
@@ -890,58 +929,6 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   padding: 110px 24px;
 }
 
-/* 降る星のモーション */
-.cta__falling {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.cta__falling span {
-  position: absolute;
-  top: -30px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.55);
-  opacity: 0;
-  animation: starFall linear infinite;
-}
-/* 尾（ながれ星のしっぽ） */
-.cta__falling span::before {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1.5px;
-  height: 26px;
-  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.7));
-  border-radius: 2px;
-}
-@keyframes starFall {
-  0% { transform: translateY(-4vh); opacity: 0; }
-  8% { opacity: 1; }
-  85% { opacity: 0.9; }
-  100% { transform: translateY(108vh); opacity: 0; }
-}
-.cta__falling span:nth-child(1)  { left: 6%;  animation-duration: 7.5s; animation-delay: 0s; }
-.cta__falling span:nth-child(2)  { left: 16%; animation-duration: 9.5s; animation-delay: 2.4s; width: 3px; height: 3px; }
-.cta__falling span:nth-child(3)  { left: 27%; animation-duration: 8.2s; animation-delay: 5.1s; }
-.cta__falling span:nth-child(4)  { left: 38%; animation-duration: 10.5s; animation-delay: 1.2s; width: 2.5px; height: 2.5px; }
-.cta__falling span:nth-child(5)  { left: 49%; animation-duration: 7.8s; animation-delay: 3.8s; }
-.cta__falling span:nth-child(6)  { left: 60%; animation-duration: 9.8s; animation-delay: 0.8s; width: 3px; height: 3px; }
-.cta__falling span:nth-child(7)  { left: 70%; animation-duration: 8.6s; animation-delay: 4.6s; }
-.cta__falling span:nth-child(8)  { left: 79%; animation-duration: 10.2s; animation-delay: 2s; width: 2.5px; height: 2.5px; }
-.cta__falling span:nth-child(9)  { left: 88%; animation-duration: 7.2s; animation-delay: 5.8s; }
-.cta__falling span:nth-child(10) { left: 95%; animation-duration: 9s;   animation-delay: 1.6s; width: 3px; height: 3px; }
-
-/* 動きを減らす設定のユーザーには表示しない */
-@media (prefers-reduced-motion: reduce) {
-  .cta__falling span { display: none; }
-}
-
 .cta__limited {
   font-size: clamp(1.15rem, 3.2vw, 1.5rem);
   font-weight: 900;
@@ -961,19 +948,6 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   max-width: 480px;
   margin: 0 auto 44px;
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
-}
-.price-card__before {
-  font-size: 1.02rem;
-  color: var(--ink-soft);
-  text-decoration: line-through;
-  text-decoration-color: var(--accent-deep);
-  text-decoration-thickness: 2px;
-}
-.price-card__arrow {
-  font-size: 1.6rem;
-  font-weight: 900;
-  color: var(--accent-deep);
-  margin: 6px 0;
 }
 .price-card__label {
   display: inline-block;

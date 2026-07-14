@@ -105,6 +105,29 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 
 // ============================================
+// 流れ星: 夜空セクションに2分に1度降らせる
+// ============================================
+const nightSections = [
+  document.querySelector(".hero"),
+  document.getElementById("cta"),
+].filter(Boolean);
+
+function spawnShootingStar() {
+  nightSections.forEach((section) => {
+    const star = document.createElement("span");
+    star.className = "shooting-star";
+    // 高さはランダム（上部〜中程から流れ始める）
+    star.style.top = 5 + Math.random() * 35 + "%";
+    section.appendChild(star);
+    star.addEventListener("animationend", () => star.remove());
+  });
+}
+
+// ページを開いて少ししたら1回、その後は2分に1度
+setTimeout(spawnShootingStar, 4000);
+setInterval(spawnShootingStar, 120000);
+
+// ============================================
 // 予約フォーム送信 → GAS → スプレッドシート
 // ============================================
 
