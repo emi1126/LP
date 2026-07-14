@@ -1149,6 +1149,55 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   padding-top: 4px;
 }
 
+/* ============ このような方に ============ */
+.foryou {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.foryou-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 32px 18px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.foryou-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 44px rgba(58, 53, 80, 0.14);
+}
+
+.foryou-card__illust {
+  width: 64px;
+  height: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--lavender);
+  font-size: 1.9rem;
+  animation: float 5s ease-in-out infinite;
+}
+.foryou-card:nth-child(2) .foryou-card__illust { animation-delay: 0.7s; }
+.foryou-card:nth-child(3) .foryou-card__illust { animation-delay: 1.4s; }
+.foryou-card:nth-child(4) .foryou-card__illust { animation-delay: 2.1s; }
+.foryou-card:nth-child(5) .foryou-card__illust { animation-delay: 2.8s; }
+
+.foryou-card__text {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+  line-height: 1.7;
+}
+
 /* ============ CTA（夜空ふたたび、温かく） ============ */
 .cta {
   position: relative;
@@ -1584,6 +1633,9 @@ select.form-input {
   .reasons__grid { grid-template-columns: 1fr; gap: 14px; }
   .reason-card { flex-direction: row; justify-content: flex-start; padding: 18px 24px; gap: 16px; }
   .reason-card__icon { width: 30px; height: 30px; }
+  .foryou { grid-template-columns: 1fr; gap: 14px; }
+  .foryou-card { flex-direction: row; justify-content: flex-start; padding: 16px 22px; gap: 16px; }
+  .foryou-card__illust { width: 48px; height: 48px; font-size: 1.5rem; flex-shrink: 0; }
   .flow__step:not(:last-child)::after {
     content: "↓";
     top: auto;
