@@ -966,6 +966,14 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
 .cta__falling span:nth-child(8)  { left: 79%; animation-duration: 13.2s; animation-delay: 2s;   width: 2.5px; height: 2.5px; }
 .cta__falling span:nth-child(9)  { left: 88%; animation-duration: 9.2s;  animation-delay: 5.8s; }
 .cta__falling span:nth-child(10) { left: 95%; animation-duration: 11.4s; animation-delay: 1.6s; width: 3px; height: 3px; }
+.cta__falling span:nth-child(11) { left: 11%; animation-duration: 10.8s; animation-delay: 7.2s; width: 2.5px; height: 2.5px; }
+.cta__falling span:nth-child(12) { left: 22%; animation-duration: 9.4s;  animation-delay: 8.6s; }
+.cta__falling span:nth-child(13) { left: 33%; animation-duration: 12.8s; animation-delay: 6.4s; width: 3px; height: 3px; }
+.cta__falling span:nth-child(14) { left: 44%; animation-duration: 10s;   animation-delay: 9.4s; width: 2.5px; height: 2.5px; }
+.cta__falling span:nth-child(15) { left: 55%; animation-duration: 11.6s; animation-delay: 7.8s; }
+.cta__falling span:nth-child(16) { left: 65%; animation-duration: 9.6s;  animation-delay: 10.2s; width: 3px; height: 3px; }
+.cta__falling span:nth-child(17) { left: 75%; animation-duration: 12.2s; animation-delay: 8.2s; }
+.cta__falling span:nth-child(18) { left: 92%; animation-duration: 10.4s; animation-delay: 6.8s; width: 2.5px; height: 2.5px; }
 
 .cta__limited {
   font-size: clamp(1.15rem, 3.2vw, 1.5rem);
