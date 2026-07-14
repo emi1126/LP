@@ -846,107 +846,115 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
 .compare__row--us .compare__goal { font-weight: 700; font-size: 1.08em; }
 
 /* ============ 料金プラン ============ */
-.plans {
+.pricing__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 24px;
   align-items: stretch;
 }
 
-.plan-card {
+.pricing-card {
+  position: relative;
   background: var(--white);
   border-radius: 20px;
   box-shadow: var(--shadow);
-  padding: 44px 28px 36px;
-  position: relative;
+  padding: 42px 28px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
-.plan-card:hover {
+/* カード上部のアクセントライン */
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--accent), var(--purple));
+}
+/* ホバーで少し浮く */
+.pricing-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 18px 50px rgba(58, 53, 80, 0.18);
+  box-shadow: 0 20px 52px rgba(58, 53, 80, 0.18);
 }
 
-.plan-card--featured {
+/* おすすめ（中央）カード */
+.pricing-card--featured {
   background: linear-gradient(160deg, #fff, #fdf0f3);
   border: 2px solid var(--accent);
-  box-shadow: 0 12px 40px rgba(217, 119, 147, 0.22);
+  box-shadow: 0 14px 44px rgba(217, 119, 147, 0.22);
 }
-
-.plan-card__ribbon {
+.pricing-card__ribbon {
   position: absolute;
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 16px;
+  right: -34px;
+  transform: rotate(38deg);
   background: var(--accent-deep);
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  border-radius: 999px;
-  padding: 6px 18px;
-  white-space: nowrap;
-  box-shadow: 0 4px 14px rgba(217, 119, 147, 0.4);
+  letter-spacing: 0.1em;
+  padding: 5px 40px;
+  box-shadow: 0 4px 12px rgba(217, 119, 147, 0.4);
 }
 
-.plan-card__icon {
-  font-size: 2.2rem;
+.pricing-card__icon {
+  font-size: 2.3rem;
   margin-bottom: 12px;
+  animation: float 5s ease-in-out infinite;
 }
+.pricing-card--featured .pricing-card__icon { animation-delay: 0.8s; }
+.pricing-card:last-child .pricing-card__icon { animation-delay: 1.6s; }
 
-.plan-card__name {
+.pricing-card__name {
   font-size: 1.18rem;
   font-weight: 900;
   color: var(--ink);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
-.plan-card__time {
+.pricing-card__time {
   display: inline-block;
+  background: var(--lavender);
+  color: var(--ink-soft);
   font-size: 0.88rem;
   font-weight: 700;
-  color: var(--ink-soft);
-  background: var(--lavender);
   border-radius: 999px;
   padding: 4px 18px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
-.plan-card--featured .plan-card__time {
-  color: #fff;
-  background: var(--accent);
-}
-
-.plan-card__price {
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
-.plan-card__num {
-  font-size: 2.5rem;
-  font-weight: 900;
+.pricing-card--featured .pricing-card__time {
+  background: rgba(232, 154, 174, 0.18);
   color: var(--accent-deep);
 }
-.plan-card__yen {
+
+.pricing-card__price {
+  font-weight: 900;
+  color: var(--accent-deep);
   font-size: 1.1rem;
-  font-weight: 900;
-  color: var(--accent-deep);
-  margin-left: 3px;
+  line-height: 1.2;
+  margin-bottom: 22px;
+}
+.pricing-card__num {
+  font-size: 2.7rem;
+  letter-spacing: 0.02em;
 }
 
-.plan-card__desc {
-  font-size: 0.92rem;
-  color: var(--ink-soft);
-  line-height: 1.9;
+.pricing-card__btn {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 0.95rem;
+  margin-top: auto;
 }
 
-.plans__note {
-  margin-top: 32px;
-  font-size: 0.85rem;
+.pricing__note {
+  margin-top: 40px;
+  font-size: 0.88rem;
   color: var(--ink-soft);
   line-height: 1.9;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* ============ FAQ ============ */
@@ -1453,7 +1461,7 @@ select.form-input {
   .benefits { grid-template-columns: 1fr; }
   .services { grid-template-columns: 1fr; gap: 30px; }
   .voices { grid-template-columns: 1fr; }
-  .plans { grid-template-columns: 1fr; gap: 30px; }
+  .pricing__grid { grid-template-columns: 1fr; gap: 26px; }
 
   .hero { padding: 0 20px 120px; }
   .hero__first-view { padding: 40px 0 64px; }
