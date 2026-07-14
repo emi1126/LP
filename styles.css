@@ -849,23 +849,39 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
 .flow {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 28px;
   list-style: none;
-  counter-reset: none;
+  padding: 0;
+  margin: 0;
   text-align: left;
 }
 
 .flow__step {
   position: relative;
   background: var(--white);
+  border: 2px solid #ded5ee;
   border-radius: 20px;
   box-shadow: var(--shadow);
   padding: 34px 24px 28px;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 .flow__step:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 50px rgba(58, 53, 80, 0.16);
+  border-color: var(--accent);
+}
+
+/* ステップ間をつなぐ矢印（PC: 横向き） */
+.flow__step:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  top: 50%;
+  right: -24px;
+  transform: translateY(-50%);
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--accent-deep);
+  z-index: 1;
 }
 
 .flow__num {
@@ -1524,7 +1540,15 @@ select.form-input {
   .services { grid-template-columns: 1fr; gap: 30px; }
   .voices { grid-template-columns: 1fr; }
   .pricing__grid { grid-template-columns: 1fr; gap: 26px; }
-  .flow { grid-template-columns: 1fr; gap: 26px; }
+  .flow { grid-template-columns: 1fr; gap: 30px; }
+  .flow__step:not(:last-child)::after {
+    content: "↓";
+    top: auto;
+    right: auto;
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
   .hero { padding: 0 20px 120px; }
   .hero__first-view { padding: 40px 0 64px; }
