@@ -890,6 +890,58 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   padding: 110px 24px;
 }
 
+/* 降る星のモーション */
+.cta__falling {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.cta__falling span {
+  position: absolute;
+  top: -30px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.55);
+  opacity: 0;
+  animation: starFall linear infinite;
+}
+/* 尾（ながれ星のしっぽ） */
+.cta__falling span::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1.5px;
+  height: 26px;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.7));
+  border-radius: 2px;
+}
+@keyframes starFall {
+  0% { transform: translateY(-4vh); opacity: 0; }
+  8% { opacity: 1; }
+  85% { opacity: 0.9; }
+  100% { transform: translateY(108vh); opacity: 0; }
+}
+.cta__falling span:nth-child(1)  { left: 6%;  animation-duration: 7.5s; animation-delay: 0s; }
+.cta__falling span:nth-child(2)  { left: 16%; animation-duration: 9.5s; animation-delay: 2.4s; width: 3px; height: 3px; }
+.cta__falling span:nth-child(3)  { left: 27%; animation-duration: 8.2s; animation-delay: 5.1s; }
+.cta__falling span:nth-child(4)  { left: 38%; animation-duration: 10.5s; animation-delay: 1.2s; width: 2.5px; height: 2.5px; }
+.cta__falling span:nth-child(5)  { left: 49%; animation-duration: 7.8s; animation-delay: 3.8s; }
+.cta__falling span:nth-child(6)  { left: 60%; animation-duration: 9.8s; animation-delay: 0.8s; width: 3px; height: 3px; }
+.cta__falling span:nth-child(7)  { left: 70%; animation-duration: 8.6s; animation-delay: 4.6s; }
+.cta__falling span:nth-child(8)  { left: 79%; animation-duration: 10.2s; animation-delay: 2s; width: 2.5px; height: 2.5px; }
+.cta__falling span:nth-child(9)  { left: 88%; animation-duration: 7.2s; animation-delay: 5.8s; }
+.cta__falling span:nth-child(10) { left: 95%; animation-duration: 9s;   animation-delay: 1.6s; width: 3px; height: 3px; }
+
+/* 動きを減らす設定のユーザーには表示しない */
+@media (prefers-reduced-motion: reduce) {
+  .cta__falling span { display: none; }
+}
+
 .cta__limited {
   font-size: clamp(1.15rem, 3.2vw, 1.5rem);
   font-weight: 900;
