@@ -105,6 +105,15 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 
 // ============================================
+// 安心して相談できる理由: タップ/クリックで説明を開閉
+// ============================================
+document.querySelectorAll(".reason-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("is-open");
+  });
+});
+
+// ============================================
 // 流れ星: 夜空セクションに2分に1度降らせる
 // ============================================
 const nightSections = [

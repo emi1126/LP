@@ -441,11 +441,31 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   flex-direction: column;
   align-items: center;
   gap: 14px;
+  cursor: pointer;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 .reason-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(58, 53, 80, 0.1);
+}
+
+/* ホバー / タップで開く説明文 */
+.reason-card__desc {
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+  line-height: 1.8;
+  text-align: left;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: -14px;
+  transition: max-height 0.45s ease, opacity 0.45s ease, margin-top 0.45s ease;
+}
+.reason-card:hover .reason-card__desc,
+.reason-card.is-open .reason-card__desc {
+  max-height: 220px;
+  opacity: 1;
+  margin-top: 0;
 }
 
 .reason-card__icon {
@@ -1631,8 +1651,11 @@ select.form-input {
   .pricing__grid { grid-template-columns: 1fr; gap: 26px; }
   .flow { grid-template-columns: 1fr; gap: 30px; }
   .reasons__grid { grid-template-columns: 1fr; gap: 14px; }
-  .reason-card { flex-direction: row; justify-content: flex-start; padding: 18px 24px; gap: 16px; }
+  .reason-card { flex-direction: row; justify-content: flex-start; flex-wrap: wrap; padding: 18px 24px; gap: 12px 16px; }
   .reason-card__icon { width: 30px; height: 30px; }
+  .reason-card__desc { width: 100%; margin-top: -12px; }
+  .reason-card:hover .reason-card__desc,
+  .reason-card.is-open .reason-card__desc { margin-top: 0; }
   .foryou { grid-template-columns: 1fr; gap: 14px; }
   .foryou-card { flex-direction: row; justify-content: flex-start; padding: 16px 22px; gap: 16px; }
   .foryou-card__illust { width: 48px; height: 48px; font-size: 1.5rem; flex-shrink: 0; }
