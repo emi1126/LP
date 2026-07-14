@@ -845,6 +845,65 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
 .compare__row--us .compare__arrow { color: var(--accent); }
 .compare__row--us .compare__goal { font-weight: 700; font-size: 1.08em; }
 
+/* ============ 利用の流れ ============ */
+.flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  list-style: none;
+  counter-reset: none;
+  text-align: left;
+}
+
+.flow__step {
+  position: relative;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 34px 24px 28px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.flow__step:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 50px rgba(58, 53, 80, 0.16);
+}
+
+.flow__num {
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  color: #fff;
+  font-weight: 900;
+  font-size: 1rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(217, 119, 147, 0.4);
+}
+
+.flow__icon {
+  display: block;
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+}
+
+.flow__name {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.flow__desc {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.85;
+}
+
 /* ============ 料金プラン ============ */
 .pricing__grid {
   display: grid;
@@ -1465,6 +1524,7 @@ select.form-input {
   .services { grid-template-columns: 1fr; gap: 30px; }
   .voices { grid-template-columns: 1fr; }
   .pricing__grid { grid-template-columns: 1fr; gap: 26px; }
+  .flow { grid-template-columns: 1fr; gap: 26px; }
 
   .hero { padding: 0 20px 120px; }
   .hero__first-view { padding: 40px 0 64px; }
