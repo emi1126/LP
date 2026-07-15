@@ -421,6 +421,21 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   margin-top: 8px;
 }
 
+/* ============ 線画アイコン共通 ============ */
+.icon-line {
+  width: 48px;
+  height: 48px;
+  color: #a78bfa;
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+.benefit-card:hover .icon-line,
+.service-card:hover .icon-line,
+.flow__step:hover .icon-line,
+.pricing-card:hover .icon-line {
+  color: #8b5cf6;
+}
+
 /* ============ 安心して相談できる理由 ============ */
 .reasons__grid {
   display: grid;
@@ -1658,6 +1673,7 @@ select.form-input {
   .reason-card__desc { width: 100%; margin-top: -12px; }
   .reason-card:hover .reason-card__desc,
   .reason-card.is-open .reason-card__desc { margin-top: 0; }
+  .icon-line { width: 40px; height: 40px; }
   .foryou { grid-template-columns: 1fr; gap: 14px; }
   .foryou-card { flex-direction: row; justify-content: flex-start; padding: 16px 22px; gap: 16px; }
   .foryou-card__illust { width: 48px; height: 48px; font-size: 1.5rem; flex-shrink: 0; }
