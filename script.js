@@ -2,24 +2,38 @@
 // 心の整理室 LP - インタラクション
 // ============================================
 
-// スクロールフェードイン
-const observer = new IntersectionObserver(
+// スクロールフェードイン（統一）
+const REVEAL_SELECTOR = ".fade-up";
+const REVEAL_THRESHOLD = 0.12;
+const REVEAL_ROOT_MARGIN = "0px 0px -32px 0px";
+const REVEAL_STAGGER = 0.06;
+
+const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
+        revealObserver.unobserve(entry.target);
       }
     });
   },
-  { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+  { threshold: REVEAL_THRESHOLD, rootMargin: REVEAL_ROOT_MARGIN }
 );
 
-document.querySelectorAll(".fade-up").forEach((el, i) => {
-  // 同一セクション内で少しずつ遅延をつける
-  el.style.transitionDelay = `${(i % 4) * 0.08}s`;
-  observer.observe(el);
+document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
+  revealObserver.observe(el);
 });
+
+// 同一グループ内で段階的に表示
+document
+  .querySelectorAll(
+    ".container, .benefits, .services, .flow, .reasons__grid, .foryou, .pricing__grid, .checklist, .faq, .compare, .hero__inner"
+  )
+  .forEach((group) => {
+    group.querySelectorAll(REVEAL_SELECTOR).forEach((el, i) => {
+      el.style.transitionDelay = `${i * REVEAL_STAGGER}s`;
+    });
+  });
 
 // ほどけた心の線アニメーション（untangle が見えたら発火）
 const untangle = document.querySelector(".untangle");
@@ -209,7 +223,7 @@ if (reserveForm) {
   function showThanks() {
     reserveForm.innerHTML = `
       <div class="form-done">
-        <span class="form-done__icon">🕊️</span>
+        <span class="form-done__icon"><svg class="line-icon" aria-hidden="true"><use href="icons.svg#icon-check-circle"/></svg></span>
         <p class="form-done__title">お申し込みありがとうございます</p>
         <p class="form-done__text">
           ご入力いただいたメールアドレス宛に、<br />
@@ -272,7 +286,7 @@ if (contactForm) {
       if (res.ok && result.result === "success") {
         contactForm.innerHTML = `
           <div class="form-done">
-            <span class="form-done__icon">✉️</span>
+            <span class="form-done__icon"><svg class="line-icon" aria-hidden="true"><use href="icons.svg#icon-mail-check"/></svg></span>
             <p class="form-done__title">お問い合わせありがとうございます</p>
             <p class="form-done__text">
               内容を確認のうえ、<br />
