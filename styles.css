@@ -268,6 +268,7 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
 .hero__video video {
   position: absolute;
   inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   display: block;
@@ -275,6 +276,14 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   object-position: center;
   filter: blur(3px) brightness(0.9);
   transform: scale(1.06) translateZ(0);
+}
+.hero__video.is-fallback {
+  background-image: url("assets/hero-poster.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.hero__video.is-fallback video {
+  display: none;
 }
 /* 文字を読みやすくしつつ、下端は夜空グラデーションへ溶け込ませる */
 .hero__video::after {

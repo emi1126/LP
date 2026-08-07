@@ -9,16 +9,18 @@ const REVEAL_STAGGER = 0.06;
 const STAGGER_GROUPS =
   ".container, .benefits, .services, .flow, .reasons__grid, .foryou, .pricing__grid, .checklist, .faq, .compare, .hero__inner";
 
-// ---------- 背景動画（既存 assets/hero-bg.mp4 を復元表示） ----------
+// ---------- 背景動画（既存 assets/hero-bg.mp4） ----------
 function initHeroVideo() {
   const wrap = document.querySelector(".hero__video");
   const video = document.getElementById("heroVideo");
-  if (!wrap || !video) return;
+  if (!wrap || !video || wrap.classList.contains("is-playing")) return;
 
   const play = () => {
     video.muted = true;
     const p = video.play();
-    if (p && typeof p.catch === "function") p.catch(() => {});
+    if (p && typeof p.then === "function") {
+      p.then(() => wrap.classList.add("is-playing")).catch(() => {});
+    }
   };
 
   play();
