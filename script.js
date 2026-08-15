@@ -144,7 +144,7 @@ function initChecklist() {
 
 // ---------- 流れ星 ----------
 function initShootingStars() {
-  const nightSections = [document.querySelector(".hero"), document.getElementById("cta")].filter(Boolean);
+  const nightSections = [document.getElementById("cta")].filter(Boolean);
 
   const spawn = () => {
     nightSections.forEach((section) => {
