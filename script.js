@@ -164,6 +164,28 @@ function initShootingStars() {
 const GAS_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbyYJ1iYXV4u2NaYSDj8jGk8xyCSJsBCGJan8YQ7lWLk8LUs4D-FJA78olitfy97UgVK/exec";
 
+function showFormDone(form, doneHtml) {
+  const viewportTop = form.getBoundingClientRect().top;
+  form.style.minHeight = `${form.offsetHeight}px`;
+  form.innerHTML = doneHtml;
+
+  requestAnimationFrame(() => {
+    const delta = form.getBoundingClientRect().top - viewportTop;
+    if (Math.abs(delta) > 1) {
+      window.scrollBy(0, delta);
+    }
+    const doneEl = form.querySelector(".form-done");
+    if (doneEl) {
+      doneEl.setAttribute("tabindex", "-1");
+      try {
+        doneEl.focus({ preventScroll: true });
+      } catch {
+        doneEl.focus();
+      }
+    }
+  });
+}
+
 function bindForm(form, options) {
   const submitBtn = document.getElementById(options.submitId);
   const statusEl = document.getElementById(options.statusId);
@@ -195,7 +217,7 @@ function bindForm(form, options) {
       const result = await res.json().catch(() => ({ result: "error" }));
 
       if (res.ok && result.result === "success") {
-        form.innerHTML = options.doneHtml;
+        showFormDone(form, options.doneHtml);
       } else {
         throw new Error(result.message || "送信に失敗しました");
       }
