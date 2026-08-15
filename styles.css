@@ -50,6 +50,7 @@
   --duration-reveal: 0.7s;
   --hover-lift: -4px;
   --font-main: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+  --nav-height: 64px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -89,6 +90,195 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
 
 .sp-only { display: none; }
 @media (max-width: 640px) { .sp-only { display: inline; } }
+
+/* アンカー移動時：固定ナビの裏に見出しが隠れない */
+#about,
+#service,
+#flow,
+#pricing,
+#faq,
+#form,
+#contact,
+#check {
+  scroll-margin-top: calc(var(--nav-height) + 12px);
+}
+
+/* ============ 固定ナビゲーション ============ */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 150;
+  background: rgba(255, 252, 247, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+.site-nav.is-scrolled {
+  background: rgba(254, 252, 249, 0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom-color: rgba(61, 53, 48, 0.07);
+  box-shadow: 0 2px 14px rgba(61, 53, 48, 0.07);
+}
+
+.site-nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: var(--nav-height);
+}
+
+.site-nav__brand {
+  flex-shrink: 0;
+  font-size: 0.92rem;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.site-nav__list {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav__link {
+  display: block;
+  padding: 8px 12px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  border-radius: 999px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  white-space: nowrap;
+}
+.site-nav__link:hover,
+.site-nav__link:focus-visible {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.55);
+  outline: none;
+}
+
+.site-nav__cta {
+  display: none;
+  flex-shrink: 0;
+  padding: 10px 20px;
+  font-size: 0.84rem;
+  white-space: nowrap;
+}
+
+.site-nav__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(61, 53, 48, 0.1);
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--ink);
+  font-family: var(--font-main);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.site-nav__toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.site-nav__toggle-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.site-nav.is-menu-open .site-nav__toggle-bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.site-nav.is-menu-open .site-nav__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.site-nav.is-menu-open .site-nav__toggle-bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.site-nav__drawer {
+  background: rgba(254, 252, 249, 0.98);
+  border-bottom: 1px solid rgba(61, 53, 48, 0.08);
+  box-shadow: 0 8px 24px rgba(61, 53, 48, 0.08);
+}
+.site-nav__drawer[hidden] {
+  display: none;
+}
+.site-nav__drawer-list {
+  list-style: none;
+  margin: 0;
+  padding: 12px 16px 20px;
+}
+.site-nav__drawer-link {
+  display: block;
+  padding: 14px 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  border-bottom: 1px solid rgba(61, 53, 48, 0.06);
+}
+.site-nav__drawer-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+.site-nav__drawer-cta-wrap {
+  padding-top: 16px;
+  border-bottom: none;
+}
+.site-nav__drawer-cta {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 0.95rem;
+}
+
+body.site-nav-open {
+  overflow: hidden;
+}
+
+@media (min-width: 961px) {
+  .site-nav__list {
+    display: flex;
+  }
+  .site-nav__cta {
+    display: inline-flex;
+  }
+  .site-nav__toggle {
+    display: none;
+  }
+  .site-nav__drawer {
+    display: none !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .site-nav__brand {
+    font-size: 0.85rem;
+    max-width: 42vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
 
 /* ============ スクロールフェードイン（統一） ============ */
 .fade-up {

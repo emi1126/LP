@@ -15,9 +15,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preload" as="video" href="asset/video/背景動画.mp4" type="video/mp4" />
-<link rel="preload" as="style" href="styles.css?v=14" />
+<link rel="preload" as="style" href="styles.css?v=15" />
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=14" />
+<link rel="stylesheet" href="styles.css?v=15" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -31,6 +31,51 @@
 </head>
 <body>
 <a class="skip-link" href="#main">メインコンテンツへスキップ</a>
+
+<nav class="site-nav" id="siteNav" aria-label="ページ内ナビゲーション">
+  <div class="site-nav__inner">
+    <a href="#" class="site-nav__brand">心の整理室</a>
+
+    <ul class="site-nav__list" role="list">
+      <li><a class="site-nav__link" href="#about">心の整理室とは</a></li>
+      <li><a class="site-nav__link" href="#service">サービス</a></li>
+      <li><a class="site-nav__link" href="#flow">ご利用の流れ</a></li>
+      <li><a class="site-nav__link" href="#pricing">料金</a></li>
+      <li><a class="site-nav__link" href="#faq">FAQ</a></li>
+      <li><a class="site-nav__link" href="#form">初回相談</a></li>
+    </ul>
+
+    <a href="#form" class="btn btn--primary site-nav__cta">初回相談を申し込む</a>
+
+    <button
+      type="button"
+      class="site-nav__toggle"
+      id="siteNavToggle"
+      aria-expanded="false"
+      aria-controls="siteNavMenu"
+      aria-label="メニューを開く"
+    >
+      <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+      <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+      <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+      <span class="site-nav__toggle-label">メニュー</span>
+    </button>
+  </div>
+
+  <div class="site-nav__drawer" id="siteNavMenu" hidden>
+    <ul class="site-nav__drawer-list" role="list">
+      <li><a class="site-nav__drawer-link" href="#about">心の整理室とは</a></li>
+      <li><a class="site-nav__drawer-link" href="#service">サービス</a></li>
+      <li><a class="site-nav__drawer-link" href="#flow">ご利用の流れ</a></li>
+      <li><a class="site-nav__drawer-link" href="#pricing">料金</a></li>
+      <li><a class="site-nav__drawer-link" href="#faq">FAQ</a></li>
+      <li><a class="site-nav__drawer-link" href="#form">初回相談</a></li>
+      <li class="site-nav__drawer-cta-wrap">
+        <a href="#form" class="btn btn--primary site-nav__drawer-cta">初回相談を申し込む</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <!-- ファーストビュー背景: asset/video/背景動画.mp4 -->
 <header class="hero">
@@ -191,7 +236,7 @@
 </section>
 
 <!-- ============ 問題提起 ============ -->
-<section class="section section--lavender">
+<section class="section section--lavender" id="about">
   <div class="container">
     <p class="section__eyebrow fade-up">WHY</p>
     <h2 class="section__title fade-up">
@@ -286,7 +331,7 @@
 </section>
 
 <!-- ============ サービス内容 ============ -->
-<section class="section section--white">
+<section class="section section--white" id="service">
   <div class="container">
     <p class="section__eyebrow fade-up">SERVICE</p>
     <h2 class="section__title fade-up">サービス内容</h2>
@@ -354,7 +399,7 @@
 </section>
 
 <!-- ============ 利用の流れ ============ -->
-<section class="section section--lavender">
+<section class="section section--lavender" id="flow">
   <div class="container">
     <p class="section__eyebrow fade-up">FLOW</p>
     <h2 class="section__title fade-up">ご利用の流れ</h2>
@@ -528,7 +573,7 @@
 </section>
 
 <!-- ============ FAQ ============ -->
-<section class="section section--cream">
+<section class="section section--cream" id="faq">
   <div class="container container--narrow">
     <p class="section__eyebrow fade-up">FAQ</p>
     <h2 class="section__title fade-up">よくあるご質問</h2>
@@ -810,6 +855,6 @@
   <a href="#form" class="btn btn--cta btn--sticky">＼今だけ初回限定価格／ 初回相談を予約する</a>
 </div>
 
-<script src="script.js?v=12" defer></script>
+<script src="script.js?v=13" defer></script>
 </body>
 </html>

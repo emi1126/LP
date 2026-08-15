@@ -95,6 +95,64 @@ function initStickyCta() {
   update();
 }
 
+// ---------- 固定ナビゲーション ----------
+let closeSiteNavMenu = () => {};
+
+function initSiteNav() {
+  const nav = document.getElementById("siteNav");
+  const toggle = document.getElementById("siteNavToggle");
+  const menu = document.getElementById("siteNavMenu");
+  const brand = nav?.querySelector(".site-nav__brand");
+  const hero = document.querySelector(".hero");
+  if (!nav || !toggle || !menu) return;
+
+  const setMenuOpen = (open) => {
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+    menu.hidden = !open;
+    nav.classList.toggle("is-menu-open", open);
+    document.body.classList.toggle("site-nav-open", open);
+  };
+
+  closeSiteNavMenu = () => setMenuOpen(false);
+
+  toggle.addEventListener("click", () => {
+    setMenuOpen(toggle.getAttribute("aria-expanded") !== "true");
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+      setMenuOpen(false);
+      toggle.focus();
+    }
+  });
+
+  brand?.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeSiteNavMenu();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    history.replaceState(null, "", location.pathname + location.search);
+  });
+
+  let ticking = false;
+  const updateNavState = () => {
+    ticking = false;
+    const threshold = hero ? Math.min(hero.offsetHeight * 0.12, 120) : 80;
+    nav.classList.toggle("is-scrolled", window.scrollY > threshold);
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(updateNavState);
+    },
+    { passive: true }
+  );
+  updateNavState();
+}
+
 // ---------- ページ内アンカー ----------
 function initAnchorLinks() {
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -105,6 +163,7 @@ function initAnchorLinks() {
       if (!target) return;
 
       e.preventDefault();
+      closeSiteNavMenu();
       target.classList.add("is-visible");
       target.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
         el.classList.add("is-visible");
@@ -314,6 +373,7 @@ function initUntangle() {
 
 // ---------- 初期化 ----------
 initHeroVideo();
+initSiteNav();
 initReveal();
 initUntangle();
 initStickyCta();
