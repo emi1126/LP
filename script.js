@@ -133,7 +133,7 @@ function initChecklist() {
       const checkedCount = [...checkboxes].filter((c) => c.checked).length;
       if (checkedCount > 0) {
         checkResult.style.transform = "scale(1.02)";
-        checkResult.style.boxShadow = "0 18px 50px rgba(217, 119, 147, 0.25)";
+        checkResult.style.boxShadow = "0 18px 50px rgba(168, 120, 74, 0.2)";
         setTimeout(() => {
           checkResult.style.transform = "";
         }, 300);
