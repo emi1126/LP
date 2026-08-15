@@ -166,24 +166,29 @@ const GAS_ENDPOINT =
 
 function showFormDone(form, doneHtml) {
   const viewportTop = form.getBoundingClientRect().top;
-  form.style.minHeight = `${form.offsetHeight}px`;
+  form.classList.add("is-done");
   form.innerHTML = doneHtml;
 
-  requestAnimationFrame(() => {
+  const restorePosition = () => {
     const delta = form.getBoundingClientRect().top - viewportTop;
     if (Math.abs(delta) > 1) {
       window.scrollBy(0, delta);
     }
     const doneEl = form.querySelector(".form-done");
-    if (doneEl) {
-      doneEl.setAttribute("tabindex", "-1");
-      try {
-        doneEl.focus({ preventScroll: true });
-      } catch {
-        doneEl.focus();
-      }
+    if (!doneEl) return;
+    doneEl.setAttribute("tabindex", "-1");
+    try {
+      doneEl.focus({ preventScroll: true });
+    } catch {
+      doneEl.focus();
     }
-  });
+    const rect = doneEl.getBoundingClientRect();
+    if (rect.top < 0 || rect.bottom > window.innerHeight) {
+      doneEl.scrollIntoView({ block: "nearest", behavior: "auto" });
+    }
+  };
+
+  requestAnimationFrame(() => requestAnimationFrame(restorePosition));
 }
 
 function bindForm(form, options) {
@@ -231,8 +236,9 @@ function bindForm(form, options) {
 
 const DONE_RESERVATION = `
   <div class="form-done">
-    <span class="form-done__icon"><svg class="line-icon" aria-hidden="true"><use href="icons.svg#icon-check-circle"/></svg></span>
     <p class="form-done__title">お申し込みありがとうございます</p>
+    <span class="form-done__icon"><svg class="line-icon" aria-hidden="true"><use href="icons.svg#icon-check-circle"/></svg></span>
+    <p class="form-done__badge">✓ 送信が完了しました</p>
     <p class="form-done__text">
       ご入力いただいたメールアドレス宛に、<br />
       担当より折り返しご連絡いたします。<br />
@@ -243,8 +249,9 @@ const DONE_RESERVATION = `
 
 const DONE_CONTACT = `
   <div class="form-done">
-    <span class="form-done__icon"><svg class="line-icon" aria-hidden="true"><use href="icons.svg#icon-mail-check"/></svg></span>
     <p class="form-done__title">お問い合わせありがとうございます</p>
+    <span class="form-done__icon"><svg class="line-icon" aria-hidden="true"><use href="icons.svg#icon-mail-check"/></svg></span>
+    <p class="form-done__badge">✓ 送信が完了しました</p>
     <p class="form-done__text">
       内容を確認のうえ、<br />
       ご入力いただいたメールアドレス宛に<br />

@@ -1709,6 +1709,11 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   border-top: 4px solid var(--accent);
 }
 
+.reserve-form.is-done {
+  padding: 28px 28px 32px;
+  min-height: 0;
+}
+
 .form-row { margin-bottom: 26px; }
 
 .form-label {
@@ -1858,28 +1863,43 @@ select.form-input {
 /* 送信完了メッセージ */
 .form-done {
   text-align: center;
-  padding: 30px 10px;
+  padding: 4px 0 0;
+}
+.form-done__title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--accent-deep);
+  margin-bottom: 16px;
+  line-height: 1.55;
 }
 .form-done__icon {
   display: flex;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .form-done__icon .line-icon {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
+  max-width: 360px;
   margin: 0 auto;
-}
-.form-done__title {
-  font-size: 1.4rem;
-  font-weight: 900;
   color: var(--accent-deep);
+}
+.form-done__badge {
+  display: inline-block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--accent-deep);
+  background: rgba(201, 168, 130, 0.14);
+  border-radius: 999px;
+  padding: 6px 18px;
   margin-bottom: 14px;
 }
 .form-done__text {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--ink-soft);
-  line-height: 2;
+  line-height: 1.75;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 /* ============ レスポンシブ ============ */
@@ -1887,6 +1907,15 @@ select.form-input {
   .section { padding: var(--section-y-sp) 20px; }
 
   .reserve-form { padding: 32px 22px; }
+  .reserve-form.is-done { padding: 24px 18px 28px; }
+
+  .form-done__icon .line-icon {
+    width: 44px;
+    height: 44px;
+    max-width: min(80vw, 300px);
+  }
+  .form-done__title { font-size: 1.12rem; }
+  .form-done__text { font-size: 0.9rem; }
 
   .checklist { grid-template-columns: 1fr; }
   .benefits { grid-template-columns: 1fr; }
