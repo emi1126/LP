@@ -9,7 +9,7 @@ const REVEAL_STAGGER = 0.06;
 const STAGGER_GROUPS =
   ".container, .benefits, .services, .flow, .reasons__grid, .foryou, .pricing__grid, .checklist, .faq, .compare, .hero__inner";
 
-// ---------- 背景動画（assets/hero-bg.mp4） ----------
+// ---------- 背景動画（asset/video/背景動画.mp4） ----------
 function initHeroVideo() {
   const video = document.getElementById("heroVideo");
   if (!video) return;

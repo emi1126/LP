@@ -213,7 +213,7 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   isolation: isolate;
 }
 
-/* Layer 1: 背景動画（assets/hero-bg.mp4） */
+/* Layer 1: 背景動画（asset/video/背景動画.mp4） */
 .hero__video {
   position: absolute;
   inset: 0 0 auto 0;
