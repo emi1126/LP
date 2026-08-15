@@ -9,26 +9,38 @@ const REVEAL_STAGGER = 0.06;
 const STAGGER_GROUPS =
   ".container, .benefits, .services, .flow, .reasons__grid, .foryou, .pricing__grid, .checklist, .faq, .compare, .hero__inner";
 
-// ---------- 背景動画（既存 assets/hero-bg.mp4） ----------
+// ---------- 背景動画（assets/hero-bg.mp4） ----------
 function initHeroVideo() {
-  const wrap = document.querySelector(".hero__video");
   const video = document.getElementById("heroVideo");
-  if (!wrap || !video || wrap.classList.contains("is-playing")) return;
+  if (!video) return;
+
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
 
   const play = () => {
     video.muted = true;
     const p = video.play();
     if (p && typeof p.then === "function") {
-      p.then(() => wrap.classList.add("is-playing")).catch(() => {});
+      p.catch(() => {});
     }
   };
 
   play();
   video.addEventListener("loadeddata", play, { once: true });
   video.addEventListener("canplay", play, { once: true });
+  video.addEventListener("playing", () => {
+    video.closest(".hero__video")?.classList.add("is-playing");
+  });
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden) play();
   });
+
+  if (video.readyState < 2) {
+    video.load();
+  }
 }
 
 // ---------- IntersectionObserver（統合） ----------

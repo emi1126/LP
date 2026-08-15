@@ -15,9 +15,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preload" as="video" href="assets/hero-bg.mp4" type="video/mp4" />
-<link rel="preload" as="style" href="styles.css?v=8" />
+<link rel="preload" as="style" href="styles.css?v=9" />
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=8" />
+<link rel="stylesheet" href="styles.css?v=9" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -32,11 +32,13 @@
 <body>
 <a class="skip-link" href="#main">メインコンテンツへスキップ</a>
 
-<!-- ============ ファーストビュー ============ -->
+<!-- ファーストビュー背景: assets/hero-bg.mp4（プロジェクト内既存動画） -->
 <header class="hero">
+  <!-- Layer 1: 背景動画 -->
   <div class="hero__video" aria-hidden="true">
     <video
       id="heroVideo"
+      class="hero__video-el"
       src="assets/hero-bg.mp4"
       autoplay
       muted
@@ -46,50 +48,32 @@
       width="1920"
       height="1080"
       aria-hidden="true"
-    ></video>
+    >
+      <source src="assets/hero-bg.mp4" type="video/mp4" />
+    </video>
   </div>
+  <!-- Layer 2: 半透明オーバーレイ -->
+  <div class="hero__overlay" aria-hidden="true"></div>
   <script>
   (function () {
     var v = document.getElementById("heroVideo");
-    var wrap = v && v.closest(".hero__video");
-    if (!v || !wrap) return;
-
+    if (!v) return;
     v.muted = true;
     v.defaultMuted = true;
     v.playsInline = true;
     v.setAttribute("playsinline", "");
     v.setAttribute("webkit-playsinline", "");
-
-    function markPlaying() {
-      wrap.classList.add("is-playing");
-    }
-
-    function play() {
-      v.muted = true;
-      var p = v.play();
-      if (p && p.then) {
-        p.then(markPlaying).catch(function () {});
-      }
-    }
-
-    v.addEventListener("playing", markPlaying);
-    v.addEventListener("loadeddata", play);
-    v.addEventListener("canplay", play);
-    v.addEventListener("error", function () {
-      wrap.classList.add("is-fallback");
-    });
-
-    if (v.readyState >= 2) {
-      play();
-    } else {
-      v.load();
-      play();
-    }
+    function play() { v.play().catch(function () {}); }
+    play();
+    v.addEventListener("canplay", play, { once: true });
+    v.addEventListener("loadeddata", play, { once: true });
   })();
   </script>
+  <!-- Layer 3: 装飾（星・月） -->
   <div class="hero__stars" aria-hidden="true"></div>
   <div class="hero__moon" aria-hidden="true"></div>
 
+  <!-- Layer 4: コンテンツ -->
   <div class="hero__inner">
     <!-- 最初の1画面：ここまでがファーストビュー -->
     <div class="hero__first-view">
@@ -790,6 +774,6 @@
   <a href="#form" class="btn btn--cta btn--sticky">＼今だけ初回限定価格／ 初回相談を予約する</a>
 </div>
 
-<script src="script.js?v=6" defer></script>
+<script src="script.js?v=7" defer></script>
 </body>
 </html>

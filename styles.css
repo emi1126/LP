@@ -210,6 +210,52 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   text-align: center;
   padding: 0 24px 140px;
   overflow: hidden;
+  isolation: isolate;
+}
+
+/* Layer 1: 背景動画（assets/hero-bg.mp4） */
+.hero__video {
+  position: absolute;
+  inset: 0 0 auto 0;
+  width: 100%;
+  height: 100svh;
+  min-height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero__video-el,
+.hero__video video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(3px) brightness(0.9);
+  transform: scale(1.06) translateZ(0);
+}
+
+/* Layer 2: 半透明オーバーレイ */
+.hero__overlay {
+  position: absolute;
+  inset: 0 0 auto 0;
+  width: 100%;
+  height: 100svh;
+  min-height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(27, 35, 71, 0.55) 0%,
+    rgba(44, 49, 99, 0.45) 60%,
+    rgba(44, 49, 99, 0.75) 85%,
+    var(--night-2) 100%
+  );
 }
 
 /* 最初の1画面：吹き出しまでを画面いっぱいに */
@@ -252,61 +298,12 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   padding-top: clamp(32px, 6vh, 56px);
 }
 
-/* 背景動画（ファーストビュー全体） */
-.hero__video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100svh;
-  min-height: 100vh;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-  background: linear-gradient(180deg, var(--night-1) 0%, var(--night-2) 55%, var(--night-3) 100%);
-}
-.hero__video video {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center;
-  filter: blur(3px) brightness(0.9);
-  transform: scale(1.06) translateZ(0);
-}
-.hero__video.is-fallback {
-  background-image: url("assets/hero-poster.jpg");
-  background-size: cover;
-  background-position: center;
-}
-.hero__video.is-fallback video {
-  display: none;
-}
-/* 文字を読みやすくしつつ、下端は夜空グラデーションへ溶け込ませる */
-.hero__video::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(27, 35, 71, 0.55) 0%,
-    rgba(44, 49, 99, 0.45) 60%,
-    rgba(44, 49, 99, 0.75) 85%,
-    var(--night-2) 100%
-  );
-}
-
-/* 星空 */
+/* Layer 3: 星空 */
 .hero__stars,
 .cta__stars {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
   background-image:
     radial-gradient(1.5px 1.5px at 12% 22%, #fff, transparent),
@@ -368,7 +365,7 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
   position: absolute;
   top: 56px;
   right: 9%;
-  z-index: 1;
+  z-index: 2;
   width: 84px;
   height: 84px;
   border-radius: 50%;
@@ -383,7 +380,7 @@ em { font-style: normal; color: var(--accent-deep); font-weight: 700; }
 
 .hero__inner {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: 760px;
   margin: 0 auto;
 }
